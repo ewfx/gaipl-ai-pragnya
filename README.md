@@ -1,4 +1,9 @@
-# 🚀 Project Name
+# 🚀 Gen AI Integrated Platform Environment - Pragnya
+
+Prajña (Sanskrit: प्रज्ञा) is the highest and purest form of wisdom, intelligence and understanding. 
+Prajñā is the state of wisdom which is higher than the knowledge obtained by reasoning and inference.
+(Wikipedia)
+
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
