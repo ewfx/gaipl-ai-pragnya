@@ -1,12 +1,12 @@
 # 🚀 Gen AI enabled Integrated Platform Environment - Pragnya
 
-Prajña (Sanskrit: प्रज्ञा) is the highest and purest form of wisdom, intelligence and understanding. 
+**Prajña** (Sanskrit: **प्रज्ञा**) is the highest and purest form of wisdom, intelligence and understanding. 
 Prajñā is the state of wisdom which is higher than the knowledge obtained by reasoning and inference.
 (Wikipedia)
 
-The Integrated Platform Environment is a one-stop shop for all services, applications, tools, interfaces
+The **Integrated Platform Environment** is a one-stop shop for all services, applications, tools, interfaces
 knowledge banks, etc. required by Service Desk Engineers to effectively be notified, triage and resolve incidents.
-The Wisdom or Prajña (प्रज्ञा) comes from integrating Gen AI capabilities into the platform thereby
+The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby
 vastly increasing the amount of information and past knowledge available to the engineer to resolve incidents
 in the most efficient way
 
