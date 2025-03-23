@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "question": "What is the current status of this incident?",
+      "reason": "Users often ask for updates on their tickets."
+    },
+    {
+      "question": "What is the impact and urgency of this incident?",
+      "reason": "Helps determine priority and response time."
+    },
+    {
+      "question": "Has this issue occurred before, and is there a related Knowledge Article?",
+      "reason": "Checks for recurring issues and quick resolution steps."
+    },
+    {
+      "question": "What are the next steps to resolve this issue?",
+      "reason": "Users want to know the plan for resolution."
+    },
+    {
+      "question": "What workarounds are available?",
+      "reason": "Users often need a temporary fix."
+    },
+    {
+      "question": "Are there any correlated alerts or dependent system failures?",
+      "reason": "Identifies if the issue is linked to other incidents or outages."
+    }
+  ]
+}
