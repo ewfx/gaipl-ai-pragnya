@@ -1,0 +1,32 @@
+.alert-card-container {
+    margin-bottom: 12px;
+    overflow: hidden;
+    background-color: rgb(241, 241, 241);
+    padding: 4px 0;
+    border-radius: 0.2em;
+
+}
+  
+.alert-card-header {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: bold;
+}
+  
+.alert-card-body {
+    padding: 8px;
+    max-height: 0;
+    text-align: start;
+    overflow: hidden;
+    transition: max-height 5s ease-in-out, padding 3s ease-in-out;
+    padding: 0 8px; /* Padding on left and right only */
+
+}
+  
+.alert-card-container.active .alert-card-body {
+    max-height: 200px; /* Adjust as per your content */
+    padding: 8px;
+}
+

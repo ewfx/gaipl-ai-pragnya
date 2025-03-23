@@ -1,7 +1,28 @@
 .App {
   text-align: center;
+  height: 100%;
+  background-color: #e5e5e5;
 }
-
+h3{
+  font-family: sans-serif;
+  font-size: 1.4em !important;
+  
+}
+h4{
+  font-family: 'Inter';
+  font-size: 1em !important;
+  
+}
+h5{
+  font-family: 'Inter';
+  font-size: 0.8em !important;
+  margin-bottom: 0.5rem !important;
+}
+p{
+  font-family: 'Inter';
+  font-size: 0.8em !important;
+  margin-bottom: 0.5rem !important;
+}
 
 .ps-masthead {
   align-items: center;

@@ -1,0 +1,23 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fdfdfd;
+    width: 100%;;
+    position: fixed;
+    bottom: 0;
+    /* border-bottom: 5px solid #FCCC44; */
+    height: 3em;
+    .logo{
+        height: 3em;
+    }
+    .cart{
+        height: 5em;
+    }
+    h5{
+        align-self: center;
+        margin-bottom: 0;
+        color: black;
+    }
+}

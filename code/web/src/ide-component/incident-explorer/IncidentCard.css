@@ -1,0 +1,57 @@
+.incident-card{
+    background-color: rgb(241, 241, 241);
+    margin: 0.3em;
+    margin-right: 1em;
+    margin-left: 1em;
+    border-radius: 0.2em;
+    height: 4em;
+    padding: 0.5em;
+    height: fit-content;
+    
+    .incident-card-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        padding-bottom: 0;
+        .incident-number{
+            justify-self: flex-end;
+            align-self: flex-end;
+            font-size: 1rem;
+            font-weight: bold;
+            
+        }
+        .incident-priority{
+            justify-self: flex-end;
+            align-self: flex-start;
+            font-size: 1rem;
+            font-weight: bold;
+            
+        }
+    }
+    .incident-card-body{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        .incident-short-description{
+            
+            font-size: 0.7em !important;
+            text-align: start;
+        }
+    }
+}
+
+.incident-card:hover{
+    cursor: pointer;
+    background-color: rgba(200, 200, 200, 0.5);
+}
+.selected{
+    background-color: rgba(200, 200, 200, 0.5);;
+}
+.p1, .p2, .p3{
+    border-left: 3px solid red;
+}
+.p4, .p5{
+    border-left: 3px solid rgb(0, 0, 0);
+}

@@ -1,0 +1,22 @@
+.tool-list{
+    background-color: white;
+    height: inherit;
+    
+    
+    .tools-heading {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .tool {
+        font-size: 12px;  
+        cursor: pointer; 
+        background-color: #CCC;
+        transition: box-shadow 0.3s ease;
+        
+    }
+    
+    .tool:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1)
+    }
+}

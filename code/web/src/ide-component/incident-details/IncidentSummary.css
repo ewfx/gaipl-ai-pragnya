@@ -1,0 +1,34 @@
+.incident-summary{
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f6f6;
+    border-radius: 0.4em;;
+    height: max-content;;
+    width: 100%;    
+    padding: 1em;    
+    .incident-summary-header{
+        display: flex;
+        flex-direction: row;        
+        align-items: center;
+        margin-bottom: 1em;
+        .openai{
+            height: 1em;
+            margin-right: 0.5em;
+        }
+        .incident-summary-heading{
+            
+            align-self: flex-start;    
+            margin-bottom: 0 !important; 
+        }
+        .generate-button{
+            /* height: 2em; */
+            align-items: center;
+            
+        }
+    }
+    .summary-body{
+        /* background-color: #f6f6f6; */
+        text-align: start;
+    }
+    
+}

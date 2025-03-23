@@ -1,0 +1,24 @@
+.dependency-tree-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.4em;;
+    height: 100%;
+}
+
+.dependency-container-header {
+    position: relative;
+
+
+    .icon {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        cursor: pointer;
+    }
+}
+
+.dependency-container-header .title {
+    margin: 1em;
+    align-self: flex-start; 
+}

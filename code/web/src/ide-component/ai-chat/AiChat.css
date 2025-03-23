@@ -1,0 +1,7 @@
+.ai-chat{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.4em;;
+    height: 100%;;
+}

@@ -1,0 +1,31 @@
+.incident-explorer{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.4em;;
+    height: 100%;;
+    .incident-card-container{
+        overflow-y: scroll;
+        margin-bottom: 0.5em;
+    }
+    .incident-explorer-header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .incident-explorer-heading{
+            margin: 1em;
+            align-self: flex-start;   
+            text-wrap: nowrap;     
+        }
+        .form-control{
+            height: 2em;
+            max-width: 12em;
+            margin-right: 1em;;
+        }
+        .form-control:focus{
+            box-shadow: none;
+          }
+    }
+    
+}

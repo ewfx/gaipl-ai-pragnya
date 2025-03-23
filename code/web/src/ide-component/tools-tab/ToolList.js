@@ -1,9 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Entry.css';
 import './ToolList.css'
-import { dependencyTreeModalId } from './modalconstant';
-import { useModal } from './ModalContext';
+import { dependencyTreeModalId } from '../dependency-tree/modalconstant';
+import { useModal } from '../dependency-tree/ModalContext';
 
 const Tools = () => {
     const { openModal } = useModal();
@@ -11,7 +10,7 @@ const Tools = () => {
         openModal(dependencyTreeModalId);
     };
     return (
-       <>
+       <div className="tool-list">
            <div className='tools-heading'><h5 className="fw-bold">Tools</h5> </div>
            <div className='tools-content'>
             <div className='tool' onClick={openDependencyTreeModal}>
@@ -24,7 +23,7 @@ const Tools = () => {
                 <div className='tool-name'>Dependency Map</div>
             </div>
            </div>
-       </>
+       </div>
     )
 }
 

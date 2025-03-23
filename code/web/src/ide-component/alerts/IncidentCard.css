@@ -1,0 +1,21 @@
+.incident-card{
+    background-color: rgb(241, 241, 241);
+    margin: 0.3em;
+    margin-right: 1em;
+    margin-left: 1em;
+    border-radius: 0.2em;
+    .incident-number{
+        justify-self: flex-start;
+        align-self: flex-start;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0.8em;
+    }
+    .incident-priority{
+        justify-self: flex-end;
+        align-self: flex-start;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0.8em;
+    }
+}

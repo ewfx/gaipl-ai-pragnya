@@ -1,0 +1,18 @@
+.knowledge-base{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.4em;
+    height: 100%;
+}
+
+.knowledge-base-heading {
+    margin: 1em;
+    align-self: flex-start;
+    color: red;
+}
+
+.knowledge-base-details {
+    overflow-y: auto;
+    font-size: 0.9em !important;
+}

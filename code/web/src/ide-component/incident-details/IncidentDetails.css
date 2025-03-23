@@ -1,0 +1,92 @@
+.mid-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;;
+    width:  100%;;
+    gap: 0.5em;
+    
+    .incident-details{
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 0.4em;        
+        width: 100%;
+        height: 100%;
+        gap: 0.5em;
+        align-items: flex-start;  
+        padding: 1em;
+        overflow-y: auto;
+        .incident-heading{
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 1em;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            .incident-heading-left{
+                display: flex;
+                flex-direction: row;
+                .circle-high{
+                    background-color: red;
+                    border-radius: 20em;
+                    width: 1em;
+                    height: 1em;
+                    margin-right: 0.4em;
+                }
+                .incident-number{
+                    align-self: center;
+                    margin-bottom: 0;
+                    
+                }
+            }
+            .incident-heading-right{
+                
+                .incident-number{
+                    align-self: center;
+                    margin-bottom: 0;
+                    
+                }
+            }
+        }
+        .caller-assignee-details{
+            display:flex;
+            flex-direction: row;;
+            justify-content: space-between;
+            width: 100%;
+            .incident-caller, .incident-assignee{
+                display: flex;
+                flex-direction: row;            
+                align-items: center;  
+                justify-content: center;            
+            }
+            
+        }
+        .incident-description{
+            display: flex;
+            flex-direction: column;            
+            align-items: flex-start; 
+            
+        }
+        
+    }    
+    .incident-details-null{
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 0.5em;;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .incident-summary-null{
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 0.5em;;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}

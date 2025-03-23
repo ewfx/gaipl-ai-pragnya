@@ -1,5 +1,5 @@
 /* Modal.css */
-.modal-backdrop {
+.modal-dep-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     align-items: center;
   }
   
-  .modal-content {
+  .modal-dep-content {
     background: white;
     border-radius: 8px;
     width: 80%;
@@ -21,16 +21,17 @@
     overflow: hidden;
   }
   
-  .modal-header {
-    background-color: #D9D9D9;
+  .modal-dep-header {
+    background-color: rgb(241, 241, 241);
     color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 16px;
+    position: relative;
   }
   
-  .modal-title {
+  .modal-dep-title {
     margin: 0;
     font-size: 1.25rem;
     align-self: center;  
@@ -47,7 +48,7 @@
     right: 16px;
   }
   
-  .modal-body {
+  .modal-dep-body {
     flex: 1;
     overflow: auto;
   }

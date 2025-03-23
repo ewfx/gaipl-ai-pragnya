@@ -1,0 +1,22 @@
+.alerts{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.4em;;
+    height: 100%;
+}
+
+.alerts-null{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.5em;;
+    height: 100%;;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-heading{
+    margin: 1em;
+    align-self: flex-start;        
+}
