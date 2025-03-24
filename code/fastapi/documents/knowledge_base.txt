@@ -1,0 +1,107 @@
+{
+  "knowledge_articles": [
+    {
+      "article_id": "KA1001",
+      "title": "Database Server CPU Utilization High",
+      "issue_description": "The database server DB-SERVER-01 has reported high CPU utilization exceeding 90% for more than 10 minutes.",
+      "resolution_steps": [
+        "Check running queries: Run 'SHOW FULL PROCESSLIST;' (MySQL) or 'sp_who2' (SQL Server) to identify queries consuming high CPU and optimize them.",
+        "Restart unnecessary services: Stop non-essential background processes. Run 'systemctl stop <service_name>' (Linux) or stop via Task Manager (Windows).",
+        "Monitor CPU utilization: Use 'top' (Linux) or 'Task Manager' (Windows) to check real-time CPU usage.",
+        "Optimize indexing and query execution plans: Run 'EXPLAIN ANALYZE' (PostgreSQL) or 'EXPLAIN' (MySQL) to analyze query execution.",
+        "Scale resources if needed: Increase CPU allocation or move to a larger instance in cloud environments.",
+        "Enable query caching: Configure database caching mechanisms to reduce repetitive query execution."
+      ],
+      "related_incidents": ["INC100234", "INC100235"],
+      "affected_cis": ["DB-SERVER-01"]
+    },
+    {
+      "article_id": "KA1002",
+      "title": "Database Connection Failures",
+      "issue_description": "Multiple application servers are failing to connect to DB-SERVER-01, indicating a potential network or database service issue.",
+      "resolution_steps": [
+        "Verify database status: Run 'systemctl status mysql' (Linux) or check SQL services (Windows). Restart if necessary.",
+        "Check network connectivity: Ping the database using 'ping 192.168.1.10' and use 'telnet 192.168.1.10 3306' to verify port availability.",
+        "Check firewall rules: Ensure the database port (3306 for MySQL, 1433 for SQL Server) is open.",
+        "Validate application credentials: Confirm correct database username/password in the application config file.",
+        "Review error logs: Check '/var/log/mysql/error.log' or 'SQL Server Error Log'.",
+        "Restart affected applications: Restart app servers to refresh database connections."
+      ],
+      "related_incidents": ["INC100240", "INC100241"],
+      "affected_cis": ["DB-SERVER-01", "APP-SERVER-01"]
+    },
+    {
+      "article_id": "KA1004",
+      "title": "Database Replication Lag Detected",
+      "issue_description": "The database replication lag has exceeded 5 minutes, affecting real-time data sync.",
+      "resolution_steps": [
+        "Check replication status: Run 'SHOW SLAVE STATUS\\G' (MySQL) or 'DBCC OPENTRAN' (SQL Server).",
+        "Identify blocked queries: Use 'SHOW PROCESSLIST;' to find slow queries and optimize long-running transactions.",
+        "Resync replication: Restart the slave database using 'STOP SLAVE; START SLAVE;' (MySQL).",
+        "Verify disk and network performance: Check disk I/O with 'iostat -x 1' and test network latency with 'ping -c 4 <replication_server>'.",
+        "Increase replication threads: MySQL - 'CHANGE MASTER TO MASTER_CONNECT_RETRY=10;'. PostgreSQL - Adjust 'wal_sender_timeout'."
+      ],
+      "related_incidents": ["INC100256", "INC100257"],
+      "affected_cis": ["DB-SERVER-01"]
+    },
+    {
+      "article_id": "KA2001",
+      "title": "Switch Port Connectivity Issues",
+      "issue_description": "Network switch SWITCH-SW-02 has reported connectivity issues on multiple ports, causing network disruptions.",
+      "resolution_steps": [
+        "Check port status: Run 'show interfaces status' to check the affected ports.",
+        "Restart the affected ports: Run 'shutdown' followed by 'no shutdown' on the problematic interface.",
+        "Verify cable connections: Inspect physical cables and replace if necessary.",
+        "Check switch logs: Use 'show logging' to identify error messages.",
+        "Monitor network traffic: Use 'show interfaces' to check for excessive collisions or errors.",
+        "Update firmware: Download and install the latest firmware update from the vendor."
+      ],
+      "related_incidents": ["INC200101", "INC200102"],
+      "affected_cis": ["SWITCH-SW-02"]
+    },
+    {
+      "article_id": "KA2002",
+      "title": "Firewall Dropping Legitimate Traffic",
+      "issue_description": "FIREWALL-01 is blocking legitimate traffic, causing application access issues.",
+      "resolution_steps": [
+        "Check firewall rules: Run 'show access-lists' or check security policies in the firewall GUI.",
+        "Identify blocked IPs: Review firewall logs using 'show logging' or '/var/log/firewall.log'.",
+        "Temporarily disable suspected rules: Use 'no access-list <rule-id>' (Cisco) or disable specific rules in GUI.",
+        "Verify NAT and routing: Ensure correct NAT rules and routing tables are in place.",
+        "Restart firewall services: Use 'systemctl restart firewall' (Linux) or reboot via vendor interface.",
+        "Update firewall signatures: Apply latest security patches to prevent false positives."
+      ],
+      "related_incidents": ["INC200201", "INC200202"],
+      "affected_cis": ["FIREWALL-01"]
+    },
+    {
+      "article_id": "KA2003",
+      "title": "Application Server Performance Degradation",
+      "issue_description": "APP-SERVER-01 is experiencing slow response times and high memory usage, impacting application performance.",
+      "resolution_steps": [
+        "Check system resource utilization: Use 'top' (Linux) or 'Task Manager' (Windows) to monitor CPU and memory usage.",
+        "Restart unnecessary processes: Stop background processes consuming excessive resources.",
+        "Analyze application logs: Review '/var/log/app.log' or event viewer logs for errors.",
+        "Clear temporary files and cache: Delete unnecessary temp files and restart the application service.",
+        "Scale server resources: Increase memory or CPU allocation in the cloud environment.",
+        "Check network latency: Run 'ping <db_server>' and 'traceroute <db_server>' to identify network delays."
+      ],
+      "related_incidents": ["INC200301", "INC200302"],
+      "affected_cis": ["APP-SERVER-01"]
+    },
+    {
+      "article_id": "KA3021",
+      "title": "Router Packet Loss Detected",
+      "issue_description": "ROUTER-01 is experiencing packet loss above 5%, leading to degraded network performance.",
+      "resolution_steps": [
+        "Check packet loss: Run 'ping -c 10 <destination>' and analyze % loss.",
+        "Analyze router logs: Access logs using 'show log' (Cisco) or '/var/log/syslog' (Linux-based).",
+        "Restart network interfaces: Run 'ifdown eth0 && ifup eth0' (Linux) or 'shutdown interface Gi0/1' (Cisco).",
+        "Check network traffic load: Use 'netstat -s' or 'ifconfig' to check dropped packets.",
+        "Upgrade router firmware: Check vendor documentation for software updates."
+      ],
+      "related_incidents": ["INC300555", "INC300556"],
+      "affected_cis": ["ROUTER-01"]
+    }
+  ]
+}
