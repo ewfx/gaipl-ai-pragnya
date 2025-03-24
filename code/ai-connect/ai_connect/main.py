@@ -34,13 +34,15 @@ async def root():
 
 
 @app.post("/vector-db/incident/{incident_id}", tags=["Vector DB"])
-def init_context(incident_id: int) -> str:
+def add_incident_context(incident_id: int) -> str:
     """This endpoint should be called when a new
     incident is selected by the service desk engineer
     The id of the incident is passed to this endpoint.
     This endpoint fetches the details of the incident from the
     services-connect API and initialiezes the vectorDB
     """
+
+    # TODO: Read an apm data from file gien by RAMu and add tot he context
     # initialize the VectorDB object here
     with open("../payloads/incidents.json", "r") as _in:
         content = json.load(_in)
@@ -49,23 +51,24 @@ def init_context(incident_id: int) -> str:
         ]
         # TODO: Barath use this incident
 
-    return f"Vector DB for incident {incident_id} Initialized"
+    # return Summary
+    return "Summary of the incident"
 
-@app.put("/vector-db/incident/{incident_id}/kb/{kb_id}", tags=["Vector DB"])
-def update_context(incident_id: int, kb_id: str) -> str:
-    """This endpoint updates the Context (VectorDB) for the incident with the
-    contents of the given KB article.
-    This endpoint should be called when the incident is loaded and
-    the KB article, for the incident, is determined.
-    The KB article identified by the kb_id, will be fetched and
-    """
-    # find the KB article and update the context with it
-    with open("../payloads/knowledge_base.json", "r") as _in:
-        content = json.load(_in)
-        kb = [kb for kb in content["knowledge_articles"] if kb["article_id"] == kb_id]
-        # TODO: Barath use this KB article and update the Context
+# @app.put("/vector-db/incident/{incident_id}/kb/{kb_id}", tags=["Vector DB"])
+# def update_context(incident_id: int, kb_id: str) -> str:
+#     """This endpoint updates the Context (VectorDB) for the incident with the
+#     contents of the given KB article.
+#     This endpoint should be called when the incident is loaded and
+#     the KB article, for the incident, is determined.
+#     The KB article identified by the kb_id, will be fetched and
+#     """
+#     # find the KB article and update the context with it
+#     with open("../payloads/knowledge_base.json", "r") as _in:
+#         content = json.load(_in)
+#         kb = [kb for kb in content["knowledge_articles"] if kb["article_id"] == kb_id]
+#         # TODO: Barath use this KB article and update the Context
     
-    return f"Vector DB for incident {incident_id} updated with KB article {kb_id}"
+#     return f"Vector DB for incident {incident_id} updated with KB article {kb_id}"
 
 @app.delete("/vector-db/incident/{incident_id}", tags=["Vector DB"])
 def delete_context(incident_id: int) -> str:
