@@ -5,7 +5,7 @@
       "caller": "AIOps-account",
       "short_description": "Multiple critical alerts for Database Server",
       "description": "The database server DB-SERVER-01 is experiencing high CPU utilization and connection failures.",
-      "priority": "P1",
+      "priority": "P3",
       "assignment_group": "Database Operations",
       "assigned_to": "Ramu Chittiprolu",
       "state": "In Progress",
@@ -111,7 +111,7 @@
     {
       "incident_id": "INC1234567",
       "short_description": "Database latency issue detected",
-      "priority": "High",
+      "priority": "P5",
       "status": "Open",
       "caller": "John Doe",
       "assignment_group": "DB Support Team",
@@ -154,7 +154,7 @@
     {
       "incident_id": "INC2345678",
       "short_description": "Application server CPU usage spike",
-      "priority": "Medium",
+      "priority": "P4",
       "status": "In Progress",
       "caller": "Alice Smith",
       "assignment_group": "Application Support Team",
@@ -197,7 +197,7 @@
     {
       "incident_id": "INC3456789",
       "short_description": "Router down causing network disruption",
-      "priority": "Critical",
+      "priority": "P3",
       "status": "Open",
       "caller": "Mike Johnson",
       "assignment_group": "Network Operations Team",
@@ -240,7 +240,7 @@
     {
       "incident_id": "INC4567890",
       "short_description": "Firewall misconfiguration causing blocked traffic",
-      "priority": "High",
+      "priority": "P3",
       "status": "Open",
       "caller": "Sarah Connor",
       "assignment_group": "Security Team",
