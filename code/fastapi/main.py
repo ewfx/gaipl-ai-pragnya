@@ -106,7 +106,7 @@ class MessageRequest(BaseModel):
 
 @app.on_event("startup")
 def load_documents_on_startup():
-    folder_path = r"C:\Users\bbara\GenAI\Agents\FASTAPI\documents"  # <-- Ensure the path is correct and accessible
+    folder_path = r"documents"  # <-- Ensure the path is correct and accessible
     print(f"🚀 Loading documents from: {folder_path}")
 
     txt_files = glob.glob(os.path.join(folder_path, "*.txt"))
@@ -125,31 +125,31 @@ def load_documents_on_startup():
 
     print(f"✅ Loaded {loaded} documents into vector store.")
 
-@app.post("/api/upload", summary="Upload Document", description="Upload a document to be processed and stored in the vector store.")
-async def upload_document(file: UploadFile = File(...)):
-    """
-    Upload a document file, compute its embedding via OpenAI, and store it in the in-memory vector store.
-    """
-    try:
-        contents = await file.read()
-        text = contents.decode("utf-8")
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Error reading file: {e}")
+# @app.post("/api/upload", summary="Upload Document", description="Upload a document to be processed and stored in the vector store.")
+# async def upload_document(file: UploadFile = File(...)):
+#     """
+#     Upload a document file, compute its embedding via OpenAI, and store it in the in-memory vector store.
+#     """
+#     try:
+#         contents = await file.read()
+#         text = contents.decode("utf-8")
+#     except Exception as e:
+#         raise HTTPException(status_code=400, detail=f"Error reading file: {e}")
     
-    if not text.strip():
-        raise HTTPException(status_code=400, detail="Uploaded file is empty or contains only whitespace.")
+#     if not text.strip():
+#         raise HTTPException(status_code=400, detail="Uploaded file is empty or contains only whitespace.")
     
-    try:
-        embedding = get_embedding(text)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+#     try:
+#         embedding = get_embedding(text)
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=str(e))
     
-    vector_store.append({
-        "content": text,
-        "embedding": embedding
-    })
+#     vector_store.append({
+#         "content": text,
+#         "embedding": embedding
+#     })
     
-    return JSONResponse(status_code=200, content={"message": "Document uploaded and processed successfully."})
+#     return JSONResponse(status_code=200, content={"message": "Document uploaded and processed successfully."})
 
 @app.post("/vector-db/incident/{incident_id}", tags=["Vector DB"])
 def add_incident_context(incident_id: str):
@@ -222,6 +222,7 @@ async def process_message(
     context_str = "\n".join(context) if context else "No document context available."
 
     # Step 5: Build message list for OpenAI
+    # Ramu to edit this section to tweak the answers!!
     messages = [
         {"role": "system", "content": "You are a helpful assistant. Use the document context and previous conversation to answer the user."},
         {"role": "system", "content": f"Document context:\n{context_str}"}

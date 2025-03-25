@@ -10,7 +10,11 @@ requires-python = ">=3.13"
 dependencies = [
     "fastapi (>=0.115.11,<0.116.0)",
     "uvicorn (>=0.34.0,<0.35.0)",
-    "websockets (>=15.0.1,<16.0.0)"
+    "websockets (>=15.0.1,<16.0.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "openai (>=1.68.2,<2.0.0)",
+    "python-multipart (>=0.0.20,<0.0.21)",
+    "numpy (>=2.2.4,<3.0.0)"
 ]
 
 
