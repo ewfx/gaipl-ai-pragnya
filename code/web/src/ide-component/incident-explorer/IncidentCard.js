@@ -6,6 +6,8 @@ export const IncidentCard = ({incident, selectedIncident, setSelectedIncident}) 
     const getBorderColor = () => {
         return incident.priority.toLowerCase();
     }
+
+    
     
     return (
         <div className={(incident === selectedIncident ? "incident-card selected " : "incident-card ") + (getBorderColor())} onClick={() => {setSelectedIncident(incident); console.log(incident)}}>

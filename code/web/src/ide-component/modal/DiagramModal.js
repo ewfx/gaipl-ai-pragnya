@@ -1,10 +1,10 @@
 // DiagramModal.js
 import React from 'react';
 
-import './DiagramModal.css';
-import {dependencyTreeModalId} from './modalconstant';
-import { useModal } from './ModalContext';
-import BasicFlow from './DependencyMapping';
+import './Modal.css';
+import { useModal } from '../../context/ModalContext';
+import { dependencyTreeModalId } from './modalconstant';
+import BasicFlow from '../dependency-tree/DependencyMapping';
 
 const DiagramModal = () => {
   const { isModalOpen, closeModal } = useModal();

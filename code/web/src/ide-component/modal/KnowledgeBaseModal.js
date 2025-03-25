@@ -1,13 +1,11 @@
 // DiagramModal.js
 import React from 'react';
-
-import './knowledgeBaseModal.css';
-import {dependencyTreeModalId} from './modalconstant';
-import { useModal } from './ModalContext';
-import BasicFlow from './DependencyMapping';
+import './Modal.css';
 import { KnowledgeBase } from '../knowledge-base/Knowledgebase';
+import { useModal } from '../../context/ModalContext';
+import { knowledgeBaseModal } from './modalconstant';
 
-const knowledgeBaseModal = () => {
+const KnowledgeBaseModal = () => {
   const { isModalOpen, closeModal } = useModal();
 
   if (!isModalOpen(knowledgeBaseModal)) return null;
@@ -17,7 +15,7 @@ const knowledgeBaseModal = () => {
       <div className="modal-dep-content">
         {/* Header Section with Title and Close Button */}
         <div className="modal-dep-header">
-          <h3>Dependency Diagram</h3>
+          <h3>Knowledge Base</h3>
           <button onClick={()=> {closeModal(knowledgeBaseModal)}} className="close-btn">X</button>
         </div>
 
@@ -30,4 +28,4 @@ const knowledgeBaseModal = () => {
   );
 };
 
-export default DiagramModal;
+export default KnowledgeBaseModal;

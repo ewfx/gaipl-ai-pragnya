@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ToolList.css'
 import { dependencyTreeModalId } from '../dependency-tree/modalconstant';
-import { useModal } from '../dependency-tree/ModalContext';
+import { useModal } from '../../context/ModalContext';
 
 const ToolList = () => {
     const { openModal } = useModal();

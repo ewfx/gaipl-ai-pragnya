@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './IDELandingPage.css';
 import { IncidentExplorer } from './incident-explorer/IncidentExplorer';
 import { IncidentDetails } from './incident-details/IncidentDetails';
-import { Alerts } from './alerts/Alerts';
-import { KnowledgeBase } from './knowledge-base/Knowledgebase';
 import { AiChat } from './ai-chat/AiChat';
 import { IncidentControls } from './incident-controls/incident-details/IncidentControls';
 import { DependencyTree } from './dependency-tree/DependencyTree';
 import Split from 'react-split';
-import { Header } from './header/Header';
+import { useIncident } from '../context/IncidentContext';
 const IDELandingPage = () => {
   let [selectedIncident, setSelectedIncident] = useState(null);
   let [relevantKnowledgeBase, setRelevantKnowledgeBase] = useState(null);
+  const {setSelectedIncidentInContext} = useIncident();
   let [chatSessionId, setChatSessionId] = useState(null);
 
+  useEffect(() => {
+    setSelectedIncidentInContext(selectedIncident);
+  }, [selectedIncident]);
   return (
     <>
     
@@ -30,12 +32,20 @@ const IDELandingPage = () => {
         gutterSize={8} // Set the size of the separator
       >
             <div className='top-section'>
+            <Split
+              className="split-horizontal"
+              direction="horizontal"
+              sizes={[25,75]} 
+              minSize={100}
+              gutterSize={8}
+            >
               <div className="incident-explorer-container">
                 <IncidentExplorer selectedIncident={selectedIncident} setSelectedIncident={setSelectedIncident} chatSesssionId={chatSessionId} setChatSessionId={setChatSessionId}/>
               </div>
               <div className="incident-details-container">
                 <IncidentDetails selectedIncident={selectedIncident} setChatSessionId={setChatSessionId}/>
               </div>
+              </Split>
               {/* <div className="alerts-container">
               <Alerts selectedIncident={selectedIncident} />
               </div> 

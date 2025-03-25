@@ -53,3 +53,7 @@
     overflow: auto;
   }
   
+  .alert-modal.modal-dep-content{
+      width: 50%;
+      height: 50%;
+  }
