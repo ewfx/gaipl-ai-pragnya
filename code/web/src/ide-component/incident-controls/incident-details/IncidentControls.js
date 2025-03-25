@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import './IncidentControls.css'
-import Incidents from './Incidents.json' ;
-import moment from 'moment';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import Form from 'react-bootstrap/Form';
+import Button from "react-bootstrap/esm/Button";
 
 export const IncidentControls = ({selectedIncident}) => {
-    let [incidentList, setIncidentList] = useState(Incidents);
+    let [resolutionSteps, setResolutionSteps] = useState("");
+    let [closureNotes, setClosureNotes] = useState("");
     
     useEffect(() => {
         console.log(selectedIncident)
@@ -19,14 +20,20 @@ export const IncidentControls = ({selectedIncident}) => {
             </div>
             <div className="incident-controls-body">
             <Tabs
-                defaultActiveKey="profile"                
+                defaultActiveKey="resolution"                
                 className="tab-group"
                 >
-                <Tab eventKey="resolution" title="Resolution Steps">
-                    Tab content for Home
+                <Tab eventKey="resolution" title="Resolution Steps" >
+                    <div className="resolution-steps">
+                        <Form.Control as="textarea" rows={8} placeholder="Enter resolution steps" value={resolutionSteps} onChange={(e) => {setResolutionSteps(e.target.value)}}/>
+                            <Button variant="primary" className="execute-button">Execute</Button>
+                    </div>
                 </Tab>
                 <Tab eventKey="close-notes" title="Closure Notes">
-                    Tab content for Profile
+                    <div className="resolution-steps">
+                        <Form.Control as="textarea" rows={8} placeholder="Enter closure notes" value={closureNotes} onChange={(e) => {setClosureNotes(e.target.value)}}/>
+                            <Button variant="success" className="close-button">Close Incident</Button>
+                    </div>
                 </Tab>
             </Tabs>          
             </div>

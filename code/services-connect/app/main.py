@@ -1,8 +1,12 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 
+from fastapi.middleware.cors import CORSMiddleware
 
 from .routers import incidents, kb, cmdb
+
+
+
 
 
 api = FastAPI(title="Integrated Platform Management Services API", 
@@ -15,6 +19,15 @@ api = FastAPI(title="Integrated Platform Management Services API",
 api.include_router(incidents.router)
 api.include_router(kb.router)
 api.include_router(cmdb.router)
+
+# ✅ Configure CORS policy
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 
 @api.get("/", include_in_schema=False)

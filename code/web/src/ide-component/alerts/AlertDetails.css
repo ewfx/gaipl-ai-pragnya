@@ -1,5 +1,5 @@
 .alert-details-container {
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-bottom: 0.5em;
     padding: 5px 18px;
 }

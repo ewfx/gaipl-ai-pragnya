@@ -1,7 +1,12 @@
 .ai-chat{
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: rgb(241, 241, 241);
     border-radius: 0.4em;;
     height: 100%;;
+}
+
+.alert-heading{
+    margin: 1em;
+    align-self: flex-start;        
 }

@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react"
 import './IncidentExplorer.css'
-import Incidents from './Incidents.json' ;
 import { IncidentCard } from "./IncidentCard";
 import Form from 'react-bootstrap/Form';
 
 export const IncidentExplorer = ({selectedIncident, setSelectedIncident}) => {
-    let [incidentList, setIncidentList] = useState(Incidents);
-    let [filteredIncidents, setFilteredIncidents] = useState(Incidents);
+    let [incidentList, setIncidentList] = useState([]);
+    let [filteredIncidents, setFilteredIncidents] = useState([]);
     let [searchTerm, setSearchTerm] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:8000/incidents/", {
+            method: "GET",
+            mode: "cors",  // Ensures cross-origin request
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+            .then(response => response.json())
+            .then(data => {console.log(data['incidents']); setIncidentList(data['incidents']); setFilteredIncidents(data['incidents']); })
+    },[])
 
     useEffect(() => {
         setFilteredIncidents(

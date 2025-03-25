@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 import './IncidentSummary.css'
-import Incidents from './Incidents.json' ;
 import Button from 'react-bootstrap/Button';
 import openai from '../img/openai.svg'
 
 export const IncidentSummary = ({}) => {
-    let [incidentList, setIncidentList] = useState(Incidents);
 
     return (
         <div className="incident-summary">

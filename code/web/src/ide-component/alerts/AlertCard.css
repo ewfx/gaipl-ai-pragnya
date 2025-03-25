@@ -20,13 +20,22 @@
     max-height: 0;
     text-align: start;
     overflow: hidden;
-    transition: max-height 5s ease-in-out, padding 3s ease-in-out;
-    padding: 0 8px; /* Padding on left and right only */
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    padding: 0 8px; /* Initial padding */
 
 }
   
 .alert-card-container.active .alert-card-body {
-    max-height: 200px; /* Adjust as per your content */
+    max-height: 800px; /* Adjust as per your content */
+    opacity: 1; /* Fade in */
     padding: 8px;
 }
 
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+  
+.arrow.rotate {
+    transform: rotate(180deg); /* Rotate the arrow when the card is open */
+}
