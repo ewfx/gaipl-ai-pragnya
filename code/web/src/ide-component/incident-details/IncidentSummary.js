@@ -3,6 +3,7 @@ import './IncidentSummary.css'
 import Button from 'react-bootstrap/Button';
 import openai from '../img/openai.svg'
 import Markdown from "markdown-to-jsx";
+import LoadingDots from "../ai-chat/LoadingDots";
 
 export const IncidentSummary = ({summary}) => {
 
@@ -17,7 +18,7 @@ export const IncidentSummary = ({summary}) => {
                 
             </div>
             <div className="summary-body">
-                {summary && <Markdown>{summary}</Markdown>}
+                {!summary ? <LoadingDots text={`Analyzing incident data... Generating a precise summary`} />  :  <Markdown>{summary}</Markdown>}
             </div>
         </div>        
     )

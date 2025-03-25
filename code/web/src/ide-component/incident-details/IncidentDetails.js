@@ -59,32 +59,34 @@ export const IncidentDetails = ({selectedIncident}) => {
 
                     </div>
                 </div>
-                <div className="caller-assignee-details">
-                    <div className="incident-caller">
-                        <h5><b>Created By: &nbsp;</b></h5>
-                        <p>                
-                            {selectedIncident.caller}                
-                        </p>
+                <div className="incident-detail-description">
+                    <div className="incident-summary-section">
+                        <IncidentSummary summary={summary}/>
                     </div>
-                    <div className="incident-assignee">
-                        <h5><b>Assigned To: &nbsp;</b></h5>
-                        <p>                
-                            {selectedIncident.assigned_to}                
-                        </p>
-                    </div>
-                    
-                </div>
-                <div className="incident-heading-right">
-                        
+                    <div className="incident-caller-details">
+                        <div className="incident-caller">
+                            <h5><b>Created By: &nbsp;</b></h5>
+                            <p>                
+                                {selectedIncident.caller}                
+                            </p>
+                        </div>
+                        <div className="incident-assignee">
+                            <h5><b>Assigned To: &nbsp;</b></h5>
+                            <p>                
+                                {selectedIncident.assigned_to}                
+                            </p>
+                        </div>
+                        <div>
                         <h5 className="incident-created-on" ><b>Created on:</b> &nbsp;{moment(selectedIncident.created_at).format("YYYY-MM-DD HH:mm:ss")}</h5>
+                        </div>
+                        <div className="incident-description">
+                            <h5><b>Description: </b></h5>
+                            <p>                
+                                {selectedIncident.short_description}                
+                            </p>
+                        </div>
                     </div>
-                <div className="incident-description">
-                    <h5><b>Description: </b></h5>
-                    <p>                
-                        {selectedIncident.short_description}                
-                    </p>
                 </div>
-                <IncidentSummary summary={summary}/>
             </div>
         }
         </div>

@@ -105,3 +105,17 @@
         justify-content: center;
     }
 }
+
+.incident-detail-description {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    .incident-summary-section {
+        flex: 9;
+    }
+
+    .incident-caller-details {
+        flex: 3;
+        text-align: start;
+    }
+}
