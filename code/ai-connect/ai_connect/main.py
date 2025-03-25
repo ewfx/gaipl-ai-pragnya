@@ -4,6 +4,7 @@ from collections import deque
 from pathlib import Path
 from typing import Generator, Any
 from fastapi import FastAPI, HTTPException, Request, Response, Cookie
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 import openai
@@ -15,6 +16,7 @@ from dotenv import load_dotenv
 from . import ai_lib
 
 load_dotenv()
+
 
 class MessageRequest(BaseModel):
     message: str
@@ -53,6 +55,14 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
+
 # Globals
 # Example: simple conversation memory
 # Global in-memory chat history (for all users for now — can be made per-session)
@@ -65,9 +75,13 @@ SESSION_COOKIE_NAME = "chat_session_id"
 MAX_HISTORY = 20
 
 @app.post("/ai-connect/incident/{incident_id}", tags=["AI Connect"])
-def add_incident_context(incident_id: str):
+def add_incident_context(incident_id: str,
+                         request: Request,
+                         response: Response,
+                         chat_session_id: str = Cookie(default=None)):
     """
     Fetch incident by ID, get context from vector DB, and generate a summary.
+    Also stores the incident in memory per session.
     """
     with open("../payloads/incidents.json", "r") as _in:
         content = json.load(_in)
@@ -75,6 +89,14 @@ def add_incident_context(incident_id: str):
             inc for inc in content["incidents"] if inc["incident_id"] == incident_id
         ]
         incident_text = json.dumps(incident, indent=2)
+        
+        # store per session
+        if not chat_session_id:
+            chat_session_id = str(uuid.uuid4())
+            response.set_cookie(key=SESSION_COOKIE_NAME, value=chat_session_id)
+        
+        ai_lib.last_incident_memory[chat_session_id] = incident_text
+
         try:
             context = ai_lib.retrieve_context(incident_text)
         except Exception as e:
@@ -109,6 +131,7 @@ async def process_message(
     chat_session_id: str = Cookie(default=None)
 ):
     # Step 1: Assign session ID
+    query = message_req.message.strip()
     if not chat_session_id:
         chat_session_id = str(uuid.uuid4())
         response.set_cookie(key=SESSION_COOKIE_NAME, value=chat_session_id)
@@ -123,24 +146,27 @@ async def process_message(
     # Step 3: Check for "clear"
     if query.lower() in ["clear", "reset", "start over"]:
         conversation_history.clear()
-        return {"answer": "Memory cleared for your session!"}
+        ai_lib.last_incident_memory.pop(chat_session_id, None)
+        return {"answer": "Memory cleared."}
 
     # Step 4: Retrieve context from documents
     try:
         context = ai_lib.retrieve_context(query)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error retrieving context: {e}")
+        raise HTTPException(status_code=500, detail=f"Context error: {e}")
 
-    context_str = "\n".join(context) if context else "No document context available."
-
+    context_str = "\n".join(context) or "No relevant context found."
+    incident_str = ai_lib.last_incident_memory.get(chat_session_id, "No incident loaded yet.")
     # Step 5: Build message list for OpenAI
     # Ramu to edit this section to tweak the answers!!
+    
     messages = [
-        {"role": "system", "content": "You are a helpful assistant. Use the document context and previous conversation to answer the user."},
-        {"role": "system", "content": f"Document context:\n{context_str}"}
+        {"role": "user", "content": query},
+        {"role": "system", "content": "You are a helpful assistant. Use the incident data, document context and previous conversation to answer the user's questions."},
+        {"role": "system", "content": f"Document Context:\n{context_str}"},
+        {"role": "system", "content": f"Last Incident:\n{incident_str}"}
     ]
-    messages.extend(conversation_history)
-    messages.append({"role": "user", "content": query})
+    messages.extend(list(conversation_history))
 
     # Step 6: Call OpenAI
     try:

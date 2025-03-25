@@ -5,6 +5,7 @@ from typing import List
 
 # In-memory vector store: each item is a dict with keys "content" and "embedding"
 vector_store = []
+last_incident_memory = {}
 
 def get_embedding(text: str) -> np.ndarray:
     """
