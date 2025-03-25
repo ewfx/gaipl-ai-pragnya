@@ -3,8 +3,8 @@ import './IncidentDetails.css'
 import { IncidentSummary } from "./IncidentSummary";
 import moment from 'moment';
 import { useModal } from "../../context/ModalContext";
-import { alertModal, knowledgeBaseModal } from "../modal/modalconstant";
-import { BookOpenText, TriangleAlert } from 'lucide-react';
+import { alertModal, knowledgeBaseModal, telemetryModal } from "../modal/modalconstant";
+import { BookOpenText, ChartLine, TriangleAlert } from 'lucide-react';
 
 export const IncidentDetails = ({selectedIncident}) => {
 
@@ -18,9 +18,13 @@ export const IncidentDetails = ({selectedIncident}) => {
         openModal(alertModal);
     };   
 
+    const openTelemetry = () => {
+        openModal(telemetryModal);
+    }; 
     
     
     useEffect(() => {
+        setSummary(null)
         if(selectedIncident === null){
             return;
         }
@@ -51,12 +55,14 @@ export const IncidentDetails = ({selectedIncident}) => {
                     </div>
                     <div className="incident-heading-right">
                         <div className="icon" title="Knowledge Base" onClick={openKnowledgeBaseModal}>
-                            <BookOpenText color="green" size={34}/>
+                            <BookOpenText color="green" size={25}/>
                         </div>
                         <div className="icon"  title="Alerts" onClick={openAlertModal}>
-                            <TriangleAlert color="rgb(243, 156, 18)" size={34} />
+                            <TriangleAlert color="rgb(243, 156, 18)" size={25} />
                         </div>
-
+                        <div className="icon"  title="Telemetry" onClick={openTelemetry}>
+                            <ChartLine color="green" size={25} />
+                        </div>
                     </div>
                 </div>
                 <div className="incident-detail-description">

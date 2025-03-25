@@ -34,7 +34,7 @@ const IDELandingPage = () => {
             <Split
               className="split-horizontal"
               direction="horizontal"
-              sizes={[25,75]} 
+              sizes={[25,75]} // 3 Equal parts
               minSize={100}
               gutterSize={8}
             >
@@ -43,6 +43,7 @@ const IDELandingPage = () => {
               </div>
               <div className="incident-details-container">
                 <IncidentDetails selectedIncident={selectedIncident} />
+                
               </div>
               </Split>
               {/* <div className="alerts-container">

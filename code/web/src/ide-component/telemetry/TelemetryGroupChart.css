@@ -1,0 +1,32 @@
+.telemetry-chart {
+    background-color: #FFF;
+}
+
+.chart {
+    width: 450px;
+    height: 300px;
+}
+
+.telemetry-chart-container {
+    padding: 20px;
+
+    .telemetry-chart-header {
+        text-align: start;
+    }
+
+    .telemetry-chart-app {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .telemetry-chart-host {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}
