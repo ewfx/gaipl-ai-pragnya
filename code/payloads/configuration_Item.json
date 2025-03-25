@@ -1,133 +1,56 @@
-{
-  "configuration_items": [
-    {
-      "sys_id": "4f1a7b6c1b2350100019c2c3b24bcb68",
-      "ci_name": "DB-SERVER-01",
-      "cmdb_ci_class": "cmdb_ci_database_server",
-      "ci_type": "Database Server",
-      "ip_address": "192.168.1.10",
-      "environment": "Production",
-      "owner": "DB Admin Team",
-      "status": "In Service",
-      "business_criticality": "High",
-      "supported_group": "Database Support Team",
-      "managed_group": "Database Management Team",
-      "related_alerts": [
-        "ALERT1001",
-        "ALERT1002",
-        "ALERT1004",
-        "ALERT1007",
-        "ALERT1009",
-        "ALERT3001",
-        "ALERT3002",
-        "ALERT3021"
-      ],
-      "dependencies": [
-        "e29f2a8d1b3450100019c2c3b24bcb67",
-        "f39f2a8d1b3450100019c2c3b24bcb69"
-      ],
-      "install_date": "2023-05-15T12:00:00Z",
-      "last_scanned": "2025-03-21T10:16:00Z",
-      "created_on": "2023-05-15T08:00:00Z",
-      "decommission_date": null
-    },
-    {
-      "sys_id": "e29f2a8d1b3450100019c2c3b24bcb67",
-      "ci_name": "APP-SERVER-01",
-      "cmdb_ci_class": "cmdb_ci_app_server",
-      "ci_type": "Application Server",
-      "ip_address": "192.168.1.20",
-      "environment": "Production",
-      "owner": "Application Admin Team",
-      "status": "In Service",
-      "business_criticality": "High",
-      "supported_group": "Application Support Team",
-      "managed_group": "Application Management Team",
-      "related_alerts": [
-        "ALERT1005",
-        "ALERT3010",
-        "ALERT3011"
-      ],
-      "dependencies": [
-        "4f1a7b6c1b2350100019c2c3b24bcb68"
-      ],
-      "install_date": "2023-06-10T12:00:00Z",
-      "last_scanned": "2025-03-21T07:52:00Z",
-      "created_on": "2023-06-10T08:00:00Z",
-      "decommission_date": null
-    },
-    {
-      "sys_id": "f39f2a8d1b3450100019c2c3b24bcb69",
-      "ci_name": "ROUTER-01",
-      "cmdb_ci_class": "cmdb_ci_router",
-      "ci_type": "Router",
-      "ip_address": "192.168.1.1",
-      "environment": "Production",
-      "owner": "Network Operations Team",
-      "status": "In Service",
-      "business_criticality": "Critical",
-      "supported_group": "Network Operations Team",
-      "managed_group": "Network Management Team",
-      "related_alerts": [
-        "ALERT1003",
-        "ALERT3020"
-      ],
-      "dependencies": [
-        "4f1a7b6c1b2350100019c2c3b24bcb68",
-        "e29f2a8d1b3450100019c2c3b24bcb67"
-      ],
-      "install_date": "2023-07-01T12:00:00Z",
-      "last_scanned": "2025-03-21T06:35:00Z",
-      "created_on": "2023-07-01T08:00:00Z",
-      "decommission_date": null
-    },
-    {
-      "sys_id": "g49f2a8d1b3450100019c2c3b24bcb70",
-      "ci_name": "SWITCH-SW-02",
-      "cmdb_ci_class": "cmdb_ci_network_switch",
-      "ci_type": "Network Switch",
-      "ip_address": "192.168.1.2",
-      "environment": "Production",
-      "owner": "Network Operations Team",
-      "status": "In Service",
-      "business_criticality": "High",
-      "supported_group": "Network Operations Team",
-      "managed_group": "Network Management Team",
-      "related_alerts": [
-        "ALERT1006"
-      ],
-      "dependencies": [
-        "4f1a7b6c1b2350100019c2c3b24bcb68"
-      ],
-      "install_date": "2023-08-10T12:00:00Z",
-      "last_scanned": "2025-03-21T10:10:00Z",
-      "created_on": "2023-08-10T08:00:00Z",
-      "decommission_date": null
-    },
-    {
-      "sys_id": "h59f2a8d1b3450100019c2c3b24bcb71",
-      "ci_name": "FIREWALL-01",
-      "cmdb_ci_class": "cmdb_ci_firewall",
-      "ci_type": "Firewall",
-      "ip_address": "192.168.1.3",
-      "environment": "Production",
-      "owner": "Security Team",
-      "status": "In Service",
-      "business_criticality": "Critical",
-      "supported_group": "Security Team",
-      "managed_group": "Security Management Team",
-      "related_alerts": [
-        "ALERT1010",
-        "ALERT3030"
-      ],
-      "dependencies": [
-        "4f1a7b6c1b2350100019c2c3b24bcb68",
-        "e29f2a8d1b3450100019c2c3b24bcb67"
-      ],
-      "install_date": "2023-09-05T12:00:00Z",
-      "last_scanned": "2025-03-21T10:18:00Z",
-      "created_on": "2023-09-05T08:00:00Z",
-      "decommission_date": null
-    }
-  ]
-}
+[
+  {
+    "sys_id": "e29f2a8d1b3450100019c2c3b24bcb67",
+    "ci_name": "PaymentService",
+    "cmdb_ci_class": "cmdb_ci_application",
+    "ci_type": "Application",
+    "status": "Operational",
+    "business_criticality": "High",
+    "environment": "Production",
+    "owner": "Application Owner Team",
+    "supported_group": "Application Support Team",
+    "managed_group": "Application Management Team",
+    "related_alerts": ["ALERT1004"],
+    "dependencies": ["DB-001"],
+    "install_date": "2023-03-05T12:00:00Z",
+    "last_scanned": "2025-03-21T10:16:00Z",
+    "created_on": "2023-03-05T08:00:00Z",
+    "decommission_date": null
+  },
+  {
+    "sys_id": "4f1a7b6c1b2350100019c2c3b24bcb68",
+    "ci_name": "DB-SERVER-01",
+    "cmdb_ci_class": "cmdb_ci_database_server",
+    "ci_type": "Database Server",
+    "status": "In Service",
+    "business_criticality": "High",
+    "environment": "Production",
+    "owner": "DB Admin Team",
+    "supported_group": "Database Support Team",
+    "managed_group": "Database Management Team",
+    "related_alerts": ["ALERT1001", "ALERT1002", "ALERT1005", "ALERT1006"],
+    "dependencies": ["DB-INSTANCE-001"],
+    "install_date": "2023-05-15T12:00:00Z",
+    "last_scanned": "2025-03-21T10:16:00Z",
+    "created_on": "2023-05-15T08:00:00Z",
+    "decommission_date": null
+  },
+  {
+    "sys_id": "f39f2a8d1b3450100019c2c3b24bcb69",
+    "ci_name": "db-instance-01",
+    "cmdb_ci_class": "cmdb_ci_database_instance",
+    "ci_type": "Database Instance",
+    "status": "In Service",
+    "business_criticality": "High",
+    "environment": "Production",
+    "owner": "DB Admin Team",
+    "supported_group": "Database Support Team",
+    "managed_group": "Database Management Team",
+    "related_alerts": ["ALERT1001", "ALERT1002", "ALERT1005", "ALERT1006"],
+    "dependencies": [],
+    "install_date": "2023-05-15T12:00:00Z",
+    "last_scanned": "2025-03-21T10:16:00Z",
+    "created_on": "2023-05-15T08:00:00Z",
+    "decommission_date": null
+  }
+]

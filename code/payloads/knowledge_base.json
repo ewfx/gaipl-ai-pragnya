@@ -12,7 +12,7 @@
         "Scale resources if needed: Increase CPU allocation or move to a larger instance in cloud environments.",
         "Enable query caching: Configure database caching mechanisms to reduce repetitive query execution."
       ],
-      "related_incidents": ["INC100234", "INC100235"],
+      "related_incidents": ["INC1234567","INC100234", "INC100235"],
       "affected_cis": ["DB-SERVER-01"]
     },
     {
@@ -27,7 +27,7 @@
         "Review error logs: Check '/var/log/mysql/error.log' or 'SQL Server Error Log'.",
         "Restart affected applications: Restart app servers to refresh database connections."
       ],
-      "related_incidents": ["INC100240", "INC100241"],
+      "related_incidents": ["INC1234567", "INC100240", "INC100241"],
       "affected_cis": ["DB-SERVER-01", "APP-SERVER-01"]
     },
     {

@@ -1,68 +1,18 @@
-{
-  "ci_relationships": [
-    {
-      "sys_id": "REL-101",
-      "parent_ci": "CI-DB-001",
-      "parent_ci_name": "DB-SERVER-01",
-      "child_ci": "CI-NET-003",
-      "child_ci_name": "ROUTER-01",
-      "relationship_type": "Depends on::Used by"
-    },
-    {
-      "sys_id": "REL-102",
-      "parent_ci": "CI-NET-003",
-      "parent_ci_name": "ROUTER-01",
-      "child_ci": "CI-NET-002",
-      "child_ci_name": "SWITCH-SW-02",
-      "relationship_type": "Connected by::Connects to"
-    },
-    {
-      "sys_id": "REL-103",
-      "parent_ci": "CI-NET-002",
-      "parent_ci_name": "SWITCH-SW-02",
-      "child_ci": "CI-DB-001",
-      "child_ci_name": "DB-SERVER-01",
-      "relationship_type": "Connected by::Connects to"
-    },
-    {
-      "sys_id": "REL-104",
-      "parent_ci": "CI-DB-001",
-      "parent_ci_name": "DB-SERVER-01",
-      "child_ci": "CI-APP-001",
-      "child_ci_name": "APP-SERVER-01",
-      "relationship_type": "Depends on::Used by"
-    },
-    {
-      "sys_id": "REL-105",
-      "parent_ci": "CI-FW-001",
-      "parent_ci_name": "FIREWALL-01",
-      "child_ci": "CI-DB-001",
-      "child_ci_name": "DB-SERVER-01",
-      "relationship_type": "Depends on::Dependency"
-    },
-    {
-      "sys_id": "REL-106",
-      "parent_ci": "CI-FW-001",
-      "parent_ci_name": "FIREWALL-01",
-      "child_ci": "CI-NET-002",
-      "child_ci_name": "SWITCH-SW-02",
-      "relationship_type": "Connected by::Connects to"
-    },
-    {
-      "sys_id": "REL-107",
-      "parent_ci": "CI-APP-001",
-      "parent_ci_name": "APP-SERVER-01",
-      "child_ci": "CI-OS-002",
-      "child_ci_name": "Windows-OS",
-      "relationship_type": "Runs on::Runs"
-    },
-    {
-      "sys_id": "REL-108",
-      "parent_ci": "CI-DB-001",
-      "parent_ci_name": "DB-SERVER-01",
-      "child_ci": "CI-OS-001",
-      "child_ci_name": "Linux-OS",
-      "relationship_type": "Runs on::Runs"
-    }
-  ]
-}
+[
+  {
+    "sys_id": "REL-002",
+    "parent_ci": "APP-001",
+    "parent_ci_name": "PaymentService",
+    "child_ci": "DB-001",
+    "child_ci_name": "DB-SERVER-01",
+    "relationship_type": "Depends on"
+  },
+  {
+    "sys_id": "REL-003",
+    "parent_ci": "DB-001",
+    "parent_ci_name": "DB-SERVER-01",
+    "child_ci": "DB-INSTANCE-001",
+    "child_ci_name": "db-instance-01",
+    "relationship_type": "Depends on"
+  }
+]

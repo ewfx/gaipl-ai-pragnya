@@ -3,7 +3,7 @@ from fastapi.responses import RedirectResponse
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from .routers import incidents, kb, cmdb
+from .routers import incidents, kb, cmdb, telemetry
 
 
 
@@ -19,6 +19,7 @@ api = FastAPI(title="Integrated Platform Management Services API",
 api.include_router(incidents.router)
 api.include_router(kb.router)
 api.include_router(cmdb.router)
+api.include_router(telemetry.router)
 
 # ✅ Configure CORS policy
 api.add_middleware(
