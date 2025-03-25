@@ -6,7 +6,9 @@ import Markdown from 'markdown-to-jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoadingDots from './LoadingDots';
-import './ChatBox.css'
+import './ChatBox.scss'
+import Lottie from 'lottie-react';
+import loadingAnim from '../img/loading.json';
 
 
 const ChatBox = ({initialMessage, chatSessionid}) => {
@@ -143,8 +145,20 @@ const ChatBox = ({initialMessage, chatSessionid}) => {
           />
         ))}
          {loading && (
-          <div style={{ display: 'flex', justifyContent: 'flex-start' }} id='loading-dots'>
-            <LoadingDots />
+          <div className="loading-section" style={{ display: 'flex', justifyContent: 'flex-start' }} id='loading-dots'>
+            {<div className="loading"><Lottie className="loading-animation" animationData={loadingAnim} loop={true}/>
+                <div className="loading-text loading04">
+                  <span>A</span>
+                  <span>n</span>
+                  <span>a</span>
+                  <span>l</span>
+                  <span>y</span>
+                  <span>z</span>
+                  <span>i</span>
+                  <span>n</span>
+                  <span>g</span>
+                </div>
+            </div>}
           </div>
         )}
         <div  />
