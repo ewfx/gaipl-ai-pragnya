@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './IDELandingPage.css';
 import { IncidentExplorer } from './incident-explorer/IncidentExplorer';
 import { IncidentDetails } from './incident-details/IncidentDetails';
-import { Alerts } from './alerts/Alerts';
-import { KnowledgeBase } from './knowledge-base/Knowledgebase';
 import { AiChat } from './ai-chat/AiChat';
 import { IncidentControls } from './incident-controls/incident-details/IncidentControls';
 import { DependencyTree } from './dependency-tree/DependencyTree';
 import Split from 'react-split';
-import { Header } from './header/Header';
+import { useIncident } from '../context/IncidentContext';
 const IDELandingPage = () => {
   let [selectedIncident, setSelectedIncident] = useState(null);
   let [relevantKnowledgeBase, setRelevantKnowledgeBase] = useState(null);
+  const {setSelectedIncidentInContext} = useIncident();
 
+  useEffect(() => {
+    setSelectedIncidentInContext(selectedIncident);
+  }, [selectedIncident]);
   return (
     <>
     

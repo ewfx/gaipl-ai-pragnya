@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ModalProvider } from './ide-component/dependency-tree/ModalContext';
+import { IncidentProvider } from './context/IncidentContext';
+import { ModalProvider } from './context/ModalContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ModalProvider>
-      <App />
+      <IncidentProvider>
+        <App />
+      </IncidentProvider>
     </ModalProvider>
   </React.StrictMode>
 );

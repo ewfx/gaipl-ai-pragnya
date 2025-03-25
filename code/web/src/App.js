@@ -1,20 +1,20 @@
 import './App.css';
 
-import DiagramModal from './ide-component/dependency-tree/DiagramModal';
-import { useState } from 'react';
 import IDELandingPage from './ide-component/IDELandingPage';
 import { Header } from './ide-component/header/Header';
-import { Footer } from './ide-component/footer/Footer';
+import KnowledgeBaseModal from './ide-component/modal/KnowledgeBaseModal';
+import AlertModal from './ide-component/modal/AlertModal';
+import DiagramModal from './ide-component/modal/DiagramModal';
 
 function App() {
-  const [dependencyTreeOpen, setDependencyTreeOpen] = useState(true);
   return (
-    
     <div className="App">  
       <Header />    
       <IDELandingPage />
       {/* <Footer /> */}
       <DiagramModal/>
+      <KnowledgeBaseModal/>
+      <AlertModal/>
     </div>
   );
 }

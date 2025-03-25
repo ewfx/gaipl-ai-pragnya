@@ -1,7 +1,7 @@
 import BasicFlow from "./DependencyMapping"
 import './DependencyTree.css'
-import { dependencyTreeModalId } from "./modalconstant";
-import { useModal } from "./ModalContext";
+import { useModal } from "../../context/ModalContext";
+import { dependencyTreeModalId } from "../modal/modalconstant";
 
 export const DependencyTree = ({selectedIncident}) =>{
     const { openModal } = useModal();
