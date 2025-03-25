@@ -4,9 +4,24 @@ import { IncidentSummary } from "./IncidentSummary";
 import moment from 'moment';
 
 export const IncidentDetails = ({selectedIncident}) => {
+
+    let [summary, setSummary] = useState(null);
     
     useEffect(() => {
-        console.log(selectedIncident)
+        if(selectedIncident === null){
+            return;
+        }
+        fetch("http://localhost:9000/ai-connect/incident/" + selectedIncident.incident_id, {
+            method: "POST",
+            mode: "cors",  // Ensures cross-origin request
+            headers: {
+              "Content-Type": "application/json"
+            },
+          })
+            .then(response => response.json())
+            .then(data => {
+                setSummary(data.summary);
+            })
     },[selectedIncident])
     return (
         <div className="mid-container">
@@ -48,7 +63,7 @@ export const IncidentDetails = ({selectedIncident}) => {
                         {selectedIncident.short_description}                
                     </p>
                 </div>
-                <IncidentSummary />
+                <IncidentSummary summary={summary}/>
             </div>
         }
         </div>

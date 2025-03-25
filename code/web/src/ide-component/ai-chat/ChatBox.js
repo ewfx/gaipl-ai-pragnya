@@ -67,7 +67,42 @@ const ChatBox = ({initialMessage}) => {
       // Show loading message
       setLoading(true);
 
-      setTimeout(() => {
+        fetch("http://localhost:9000/ai-connect/message", {
+            method: "POST",
+            mode: "cors",  // Ensures cross-origin request
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              message: input
+            })
+          })
+            .then(response => response.json())
+            .then(data => {
+              setLoading(false);
+              const aiMessage = {
+                position: 'left',
+                type: 'text',
+                text: <div className='custom-markdown'>
+                <Markdown>{data.answer}</Markdown>
+              </div>,
+                date: new Date(),
+              };
+              setMessages((prev) => [...prev, aiMessage]);
+            }).catch((error) => {
+              setLoading(false);
+              const aiMessage = {
+                position: 'left',
+                type: 'text',
+                text: <div className='custom-markdown'>
+                <Markdown>{`Something went wrong with AI`}</Markdown>
+              </div>,
+                date: new Date(),
+              };
+            })
+      };
+
+      /*setTimeout(() => {
         const aiMessage = {
           position: 'left',
           type: 'text',
@@ -79,11 +114,11 @@ const ChatBox = ({initialMessage}) => {
 
         setMessages((prev) => [...prev, aiMessage]);
         setLoading(false);
-      }, 1500);
+      }, 1500);*/
 
       setInput('');
     }
-  };
+  
 
   return (
     <div className="chat-box-container" id="chat-box-container">
