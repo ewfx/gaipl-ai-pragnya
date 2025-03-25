@@ -28,9 +28,13 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                gap: 10px;
+                gap: 15px;
                 .icon{
                     cursor: pointer;
+                }
+
+                .icon:hover{
+                    opacity: 0.8;
                 }
             }
 

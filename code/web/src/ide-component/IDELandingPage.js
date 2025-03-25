@@ -31,12 +31,20 @@ const IDELandingPage = () => {
         gutterSize={8} // Set the size of the separator
       >
             <div className='top-section'>
+            <Split
+              className="split-horizontal"
+              direction="horizontal"
+              sizes={[25,75]} 
+              minSize={100}
+              gutterSize={8}
+            >
               <div className="incident-explorer-container">
                 <IncidentExplorer selectedIncident={selectedIncident} setSelectedIncident={setSelectedIncident}/>
               </div>
               <div className="incident-details-container">
                 <IncidentDetails selectedIncident={selectedIncident} />
               </div>
+              </Split>
               {/* <div className="alerts-container">
               <Alerts selectedIncident={selectedIncident} />
               </div> 
