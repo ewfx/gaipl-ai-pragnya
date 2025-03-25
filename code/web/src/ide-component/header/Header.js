@@ -11,7 +11,7 @@ export const Header =({}) =>{
             <img className="logo"
                 src={logo}
             />
-            <h3>&nbsp; | Platform Support Environment</h3>
+            <h3>&nbsp; | Integrated Platform Environment</h3>
         </div>
     )
 }

@@ -16,7 +16,7 @@ export const IncidentControls = ({selectedIncident}) => {
     return (
         <div className="incident-controls">
             <div className="incident-controls-heading">
-                <h4 className="incident-number" ><b>Incident Controls</b></h4>                
+                <h4 className="incident-number" ><b>Incident/Change Controls</b></h4>                
             </div>
             <div className="incident-controls-body">
             <Tabs
@@ -25,8 +25,8 @@ export const IncidentControls = ({selectedIncident}) => {
                 >
                 <Tab eventKey="resolution" title="Resolution Steps" >
                     <div className="resolution-steps">
-                        <Form.Control as="textarea" rows={8} placeholder="Enter resolution steps" value={resolutionSteps} onChange={(e) => {setResolutionSteps(e.target.value)}}/>
-                            <Button variant="primary" className="execute-button">Execute</Button>
+                        <Form.Control as="textarea" rows={8} placeholder="Enter Implementation Plan" value={resolutionSteps} onChange={(e) => {setResolutionSteps(e.target.value)}}/>
+                            <Button variant="primary" className="execute-button">Create CR</Button>
                     </div>
                 </Tab>
                 <Tab eventKey="close-notes" title="Closure Notes">

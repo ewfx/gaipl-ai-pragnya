@@ -13,10 +13,9 @@ export const DependencyTree = ({selectedIncident}) =>{
         <div className="dependency-empty-panel">
             Please select an incident to work on
         </div> : 
-
         <div className="dependency-tree-container">
             <div className="dependency-container-header">
-                <div className="title"><h4><b>Dependency Mapping</b></h4></div>
+                <div className="title"><h4><b>Live Dependency Mapping</b></h4></div>
                 <div className="icon" >
                     <svg onClick={openDependencyTreeModal} width={16} height={16} xmlns="http://www.w3.org/2000/svg" 
                       shapeRendering="geometricPrecision" 

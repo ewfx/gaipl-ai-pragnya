@@ -29,38 +29,32 @@ const IDELandingPage = () => {
         gutterSize={8} // Set the size of the separator
       >
             <div className='top-section'>
-            <Split
-              className="split-horizontal"
-              direction="horizontal"
-              sizes={[25, 30, 25, 20]} // 4 Equal parts
-              minSize={100}
-              gutterSize={8}
-            >
               <div className="incident-explorer-container">
                 <IncidentExplorer selectedIncident={selectedIncident} setSelectedIncident={setSelectedIncident}/>
               </div>
               <div className="incident-details-container">
                 <IncidentDetails selectedIncident={selectedIncident} />
               </div>
-              <div className="alerts-container">
+              {/* <div className="alerts-container">
               <Alerts selectedIncident={selectedIncident} />
-              </div>
-              <div className="dependency-mapping-container">
-                <DependencyTree selectedIncident = {selectedIncident} />
-              </div>
-              </Split>
+              </div> 
+              */}
+              
             </div>
             <div className='bottom-section'>
             <Split
               className="split-horizontal"
               direction="horizontal"
-              sizes={[33, 33, 34]} // 3 Equal parts
+              sizes={[25,50, 25]} // 3 Equal parts
               minSize={100}
               gutterSize={8}
             >
-                <div className="knowledge-base-container">
+                {/* <div className="knowledge-base-container">
                   <KnowledgeBase relevantKnowledgeBase={relevantKnowledgeBase} selectedIncident = {selectedIncident}/>
-                </div>
+                </div> */}
+              <div className="dependency-mapping-container">
+                <DependencyTree selectedIncident = {selectedIncident} />
+              </div>
                 <div className="ai-chat-container">
                   <AiChat selectedIncident={selectedIncident} />
                 </div>

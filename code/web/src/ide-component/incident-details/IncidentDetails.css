@@ -23,6 +23,17 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            
+            .incident-heading-right{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                .icon{
+                    cursor: pointer;
+                }
+            }
+
             .incident-heading-left{
                 display: flex;
                 flex-direction: row;
