@@ -5,7 +5,7 @@ import moment from 'moment';
 import { useModal } from "../dependency-tree/ModalContext";
 import { knowledgeBaseModal } from "../dependency-tree/modalconstant";
 
-export const IncidentDetails = ({selectedIncident}) => {
+export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
 
     let [summary, setSummary] = useState(null);
     const { openModal } = useModal();
@@ -18,16 +18,21 @@ export const IncidentDetails = ({selectedIncident}) => {
         if(selectedIncident === null){
             return;
         }
+        setSummary(null);
         fetch("http://localhost:9000/ai-connect/incident/" + selectedIncident.incident_id, {
             method: "POST",
             mode: "cors",  // Ensures cross-origin request
             headers: {
               "Content-Type": "application/json"
             },
+            credentials: "include"
           })
-            .then(response => response.json())
+            .then(response => {console.log(response.headers.get('Set-Cookie')); return response.json();})
             .then(data => {
+                console.log(data)
+                console.log(document.cookie)
                 setSummary(data.summary);
+                setChatSessionId(data.chat_session_id);
             })
     },[selectedIncident])
     return (

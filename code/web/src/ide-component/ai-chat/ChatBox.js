@@ -9,7 +9,7 @@ import LoadingDots from './LoadingDots';
 import './ChatBox.css'
 
 
-const ChatBox = ({initialMessage}) => {
+const ChatBox = ({initialMessage, chatSessionid}) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -73,6 +73,7 @@ const ChatBox = ({initialMessage}) => {
             headers: {
               "Content-Type": "application/json"
             },
+            credentials: "include",
             body: JSON.stringify({
               message: input
             })
@@ -80,6 +81,7 @@ const ChatBox = ({initialMessage}) => {
             .then(response => response.json())
             .then(data => {
               setLoading(false);
+              console.log(document.cookie)
               const aiMessage = {
                 position: 'left',
                 type: 'text',

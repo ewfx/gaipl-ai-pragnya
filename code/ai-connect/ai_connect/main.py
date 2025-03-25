@@ -26,7 +26,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 if not openai.api_key:
     raise Exception("Please set your OpenAI API key in the OPENAI_API_KEY environment variable.")
 
-GPT_MODEL = "gpt-4o-mini" # Change to "gpt-4" if available and desired.
+GPT_MODEL = "gpt-4o-mini-2024-07-18" # Change to "gpt-4" if available and desired.
 
 
 def lifespan(app: FastAPI):
@@ -89,11 +89,11 @@ def add_incident_context(incident_id: str,
             inc for inc in content["incidents"] if inc["incident_id"] == incident_id
         ]
         incident_text = json.dumps(incident, indent=2)
+
+        print(request)
         
-        # store per session
-        if not chat_session_id:
-            chat_session_id = str(uuid.uuid4())
-            response.set_cookie(key=SESSION_COOKIE_NAME, value=chat_session_id)
+        chat_session_id = str(uuid.uuid4())
+        response.set_cookie(key=SESSION_COOKIE_NAME, value=chat_session_id)        
         
         ai_lib.last_incident_memory[chat_session_id] = incident_text
 
@@ -104,7 +104,7 @@ def add_incident_context(incident_id: str,
 
     try:
         prompt = [
-            {"role": "system", "content": "You are an incident summarizer."},
+            {"role": "system", "content": "You work on incident resolution, you have to provide all questions asked to you in a readable format, with markdown and appropriate formatting, send atleast 2 paras everytime. Also analyse the impact based on the given data."},
             {"role": "system", "content": f"Relevant context from previous documents:\n{'\n'.join(context)}"},
             {"role": "user", "content": f"Given this incident data, generate a short summary:\n{incident_text}"}
         ]
@@ -115,7 +115,7 @@ def add_incident_context(incident_id: str,
             temperature=0.5
         )
         summary = completion.choices[0].message.content.strip()
-        return {"incident_id": incident_id, "summary": summary}
+        return {"incident_id": incident_id, "summary": summary, "session_id": chat_session_id}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error summarizing: {e}")
 
@@ -131,8 +131,11 @@ async def process_message(
     chat_session_id: str = Cookie(default=None)
 ):
     # Step 1: Assign session ID
-    query = message_req.message.strip()
+    query = message_req.message.strip()  
+    print(chat_session_id, request.cookies.get("chat_session_id"))
+    # chat_session_id =
     if not chat_session_id:
+        print('no chat session id')
         chat_session_id = str(uuid.uuid4())
         response.set_cookie(key=SESSION_COOKIE_NAME, value=chat_session_id)
 
@@ -141,12 +144,13 @@ async def process_message(
         session_memory[chat_session_id] = deque(maxlen=MAX_HISTORY)
 
     conversation_history = session_memory[chat_session_id]
-    query = message_req.message.strip()
+    print(conversation_history)
 
     # Step 3: Check for "clear"
     if query.lower() in ["clear", "reset", "start over"]:
         conversation_history.clear()
         ai_lib.last_incident_memory.pop(chat_session_id, None)
+        print('clearing')
         return {"answer": "Memory cleared."}
 
     # Step 4: Retrieve context from documents
@@ -160,13 +164,15 @@ async def process_message(
     # Step 5: Build message list for OpenAI
     # Ramu to edit this section to tweak the answers!!
     
-    messages = [
-        {"role": "user", "content": query},
+    messages = list(conversation_history)
+    messages.extend([
         {"role": "system", "content": "You are a helpful assistant. Use the incident data, document context and previous conversation to answer the user's questions."},
         {"role": "system", "content": f"Document Context:\n{context_str}"},
-        {"role": "system", "content": f"Last Incident:\n{incident_str}"}
-    ]
-    messages.extend(list(conversation_history))
+        {"role": "system", "content": f"Last Incident:\n{incident_str}"},
+        {"role": "user", "content": query},
+        
+    ])
+    
 
     # Step 6: Call OpenAI
     try:
