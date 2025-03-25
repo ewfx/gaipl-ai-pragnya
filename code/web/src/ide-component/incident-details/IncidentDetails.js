@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react"
 import './IncidentDetails.css'
-import Incidents from './Incidents.json' ;
 import { IncidentSummary } from "./IncidentSummary";
 import moment from 'moment';
 
 export const IncidentDetails = ({selectedIncident}) => {
-    let [incidentList, setIncidentList] = useState(Incidents);
     
     useEffect(() => {
         console.log(selectedIncident)
     },[selectedIncident])
-
     return (
         <div className="mid-container">
         {

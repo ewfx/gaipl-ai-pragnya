@@ -6,14 +6,21 @@
     height: 100%;
 }
 
-.dependency-container-header {
-    position: relative;
+.dependency-empty-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #ffffff;
 
+}
+
+.dependency-container-header {
+    display: flex;
+    justify-content: space-between;
 
     .icon {
-        position: absolute;
-        top: 0;
-        right: 5px;
+        margin-left: 5px;
         cursor: pointer;
     }
 }

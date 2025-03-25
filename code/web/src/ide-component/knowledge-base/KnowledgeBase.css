@@ -16,3 +16,11 @@
     overflow-y: auto;
     font-size: 0.9em !important;
 }
+
+.knowledge-base-empty-panel {
+    display: flex;
+    background-color: #ffffff;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
