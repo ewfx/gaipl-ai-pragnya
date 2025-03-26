@@ -166,7 +166,6 @@
           "job": "network-monitoring"
         },
         {
-        {
           "alert_id": "ALERT1102",
           "appid": "PaymentService",
           "host": "FIREWALL-FW-05",
