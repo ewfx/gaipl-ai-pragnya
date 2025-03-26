@@ -47,7 +47,11 @@ One of the main challenges in resolving incidents is getting a consolidated, and
 knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
 
 ## 🛠️ How We Built It
+The UserInterface was first modelled using Figma. Once we locked down the UI, React was selected to be the front end application.
+The microservices were build using FastAPI. <br/>
+The LLM used is OpenAI's `text-embedding-ada-002` model.
 
+To 
 
 ## 🚧 Challenges We Faced
 Describe the major technical or non-technical challenges your team encountered.
