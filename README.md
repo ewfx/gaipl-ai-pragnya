@@ -26,37 +26,37 @@ The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** i
 knowledge available in the system to resolve incidents in the most efficient way thereby reducing the **MTTR**. <br/>
 _____________________________________________________ 
 
-## 🎯 Vision
+## 🎯Vision
 The use of LLMs and agentic capabilities, will help in resolving incidents up to 80% faster thereby reducing OpEx on human resources.
 This will result in a large number of Service Desk Engineers getting opportunities to upskill and contribute towards engineering work.
 
 
-## 🎥 Demo
+## 🎥Demo
 🔗 [Live Demo](#) (if applicable)  
 📹 [Video Demo](#) (if applicable)  
 🖼️ Screenshots:
 
 ![Screenshot 1](link-to-image)
 
-## 💡 Inspiration
+## 💡Inspiration
 The Bank spends a significant amount of money and time to triage and resolve production incidents that can directly impact customers.
 One of the main challenges in resolving incidents is getting a consolidated, and ready to use, information pertaining to the incident.
 
-## ⚙️ What It Does
+## ⚙️What It Does
 **Prajña**, the **Integrated Platform Environment** is a one-stop solution that integrates insights from services, applications, tools, infrastructure,
 knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
 
-## 🛠️ How We Built It
+## 🛠️How We Built It
 The UserInterface was first modelled using `Figma`. <br/>
 Once we locked down the UI, `React` was selected to be the front-end application.
 The microservices were built using `FastAPI`. <br/>
 The LLM used is OpenAI's `gpt-4o-mini-2024-07-18` model.<br/>
 The team's SME generated payloads to mock metrics, telemetry, incidents, alerts, dependencies, and knowledge articles. <br/>
 
-## 🚧 Challenges We Faced
+## 🚧Challenges We Faced
 Optimizing the responses of the GenAI models to make them useful was the biggest challenge.
 
-## 🏃 How to Run
+## 🏃How to Run
 1. Clone the repository  
    ```
    git clone https://github.com/ewfx/gaipl-ai-pragnya.git
@@ -94,12 +94,12 @@ Optimizing the responses of the GenAI models to make them useful was the biggest
    npm start  # or python app.py
    ```
 
-## 🏗️ Tech Stack
+## 🏗️Tech Stack
 - 🔹 Frontend: React 
 - 🔹 Backend:  Python and FastAPI 
 - 🔹 Other: OpenAI API gpt-4o-mini-2024-07-18 Model
 
-## 👥 Team
+## 👥Team
 - **Sachin Kulkarni**  
 - **Barath Srinivasan**
 - **Ramu Chittiprolu**
