@@ -19,14 +19,14 @@ _____________________________________________________
 
 ---
 
-🎯 ## Introduction
+## 🎯Introduction
 **Prajña**, the **Integrated Platform Environment** is a one-stop solution that integrates insights from services, applications, tools, infrastructure,
 knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
 The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby vastly increasing the amount of information and past 
 knowledge available in the system to resolve incidents in the most efficient way thereby reducing the **MTTR**. <br/>
 _____________________________________________________ 
 
-🎯 ##  Vision
+## 🎯 Vision
 The use of LLMs and agentic capabilities, will help in resolving incidents up to 80% faster thereby reducing OpEx on human resources.
 This will result in a large number of Service Desk Engineers getting opportunities to upskill and contribute towards engineering work.
 
