@@ -8,6 +8,7 @@ import { IncidentControls } from './incident-controls/incident-details/IncidentC
 import { DependencyTree } from './dependency-tree/DependencyTree';
 import Split from 'react-split';
 import { useIncident } from '../context/IncidentContext';
+import { Alerts } from './alerts/Alerts';
 const IDELandingPage = () => {
   let [selectedIncident, setSelectedIncident] = useState(null);
   let [relevantKnowledgeBase, setRelevantKnowledgeBase] = useState(null);
@@ -35,7 +36,7 @@ const IDELandingPage = () => {
             <Split
               className="split-horizontal"
               direction="horizontal"
-              sizes={[25,75]} // 3 Equal parts
+              sizes={[25,50,25]} // 3 Equal parts
               minSize={100}
               gutterSize={8}
             >
@@ -45,11 +46,11 @@ const IDELandingPage = () => {
               <div className="incident-details-container">
                 <IncidentDetails selectedIncident={selectedIncident} setChatSessionId={setChatSessionId}/>
               </div>
-              </Split>
-              {/* <div className="alerts-container">
-              <Alerts selectedIncident={selectedIncident} />
+             
+              <div className="alerts-container">
+                <Alerts selectedIncident={selectedIncident} />
               </div> 
-              */}
+              </Split>
               
             </div>
             <div className='bottom-section'>
