@@ -50,7 +50,7 @@ knowledge banks, etc. It enables Service Desk Engineers with everything they nee
 The UserInterface was first modelled using `Figma`. <br/>
 Once we locked down the UI, `React` was selected to be the front-end application.
 The microservices were built using `FastAPI`. <br/>
-The LLM used is OpenAI's `text-embedding-ada-002` model.<br/>
+The LLM used is OpenAI's `gpt-4o-mini-2024-07-18` model.<br/>
 The team's SME generated payloads to mock metrics, telemetry, incidents, alerts, dependencies, and knowledge articles. <br/>
 
 ## 🚧 Challenges We Faced
@@ -68,10 +68,25 @@ Optimizing the responses of the GenAI models to make them useful was the biggest
    - **LLM** gpt-4o-mini-2024-07-18
    ```sh
    cd web
-   npm install  
+   npm install
+   cd ..
+   cd services-connect/
+   poetry install
+   cd ..
+   cd ai-connect/
+   poetry install
    ```
 4. Run the project  
    ```sh
+   cd services-connect/
+   poetry run python -m uvicorn services_connect.main:api
+
+   cd ..
+   cd ai-connect/
+   poetry run python -m uvicorn ai_connect.main:app --port 9000
+
+   cd ..
+   cd web/
    npm start  # or python app.py
    ```
 
