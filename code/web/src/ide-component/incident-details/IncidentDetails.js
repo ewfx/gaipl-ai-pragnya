@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import './IncidentDetails.css'
 import { IncidentSummary } from "./IncidentSummary";
-import moment from 'moment';
 import { useModal } from "../../context/ModalContext";
 import { alertModal, knowledgeBaseModal, telemetryModal } from "../modal/modalconstant";
-import { Activity, BookOpenText, ChartLine, Lightbulb, TriangleAlert } from 'lucide-react';
+import { Activity, BookOpenText } from 'lucide-react';
 
 export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
 
@@ -14,9 +13,6 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
         openModal(knowledgeBaseModal);
     };
 
-    const openAlertModal = () => {
-        openModal(alertModal);
-    };
 
     const openTelemetry = () => {
         openModal(telemetryModal);
@@ -50,7 +46,8 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
             {
                 selectedIncident === null ?
                     <div className="incident-details-null">
-                        Please select an incident to work on
+                        <h4 className="alert-heading"><b>Incident Details</b></h4>
+                        <div className="select-incident-message">Please select an incident to work on</div>
                     </div> :
                     <div className="incident-details">
                         <div className="incident-heading">
@@ -82,7 +79,7 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                 >
                                     <Lightbulb color="#f39c12" size={25} style={{filter: 'drop-shadow(0px 0px 8px #f39c12)'}} />
                                 </div> */}
-
+    
                                 <div
                                     className="icon icon-wrapper"
                                     role="button"

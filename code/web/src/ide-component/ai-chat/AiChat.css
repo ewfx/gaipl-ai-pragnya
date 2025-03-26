@@ -1,12 +1,15 @@
-.ai-chat{
+/* Container for AI Chat Component */
+.ai-chat {
     display: flex;
-    flex-direction: column;
-    background-color: rgb(241, 241, 241);
-    border-radius: 0.4em;;
-    height: 100%;;
-}
-
-.alert-heading{
-    margin: 1em;
-    align-self: flex-start;        
-}
+    flex-direction: column; /* Aligns children vertically */
+    background-color: rgb(241, 241, 241); /* Light grey background for chat area */
+    border-radius: 0.4em; /* Subtle rounded corners for aesthetic appeal */
+    height: 100%; /* Ensures the chat occupies full height */
+  }
+  
+  /* Heading Style for Alerts */
+  .alert-heading {
+    margin: 1em; /* Adds space around the heading */
+    align-self: flex-start; /* Aligns the heading to the left side */
+  }
+  

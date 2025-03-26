@@ -1,9 +1,9 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactFlow, { Background, Controls, Handle } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { useIncident } from '../../context/IncidentContext';
 
-// Custom Node Component
+// Custom Node Component to render nodes with dynamic styles based on data
 const CustomNode = ({ data }) => {
   return (
     <div style={{
@@ -25,19 +25,25 @@ const CustomNode = ({ data }) => {
   );
 };
 
+// Define custom node type
 const nodeTypes = { custom: CustomNode };
 
-
+/**
+ * Converts relationship data into a tree structure with status and color information.
+ * @param {Array} relationships - List of relationships between nodes.
+ * @param {Array} alerts - List of alerts with severity information.
+ * @returns {Array} Root nodes of the tree structure.
+ */
 function convertToTree(relationships, alerts) {
+  if (!relationships || !relationships.length) return [];
 
-  if (!relationships || !relationships.length) {
-    return [];
-  }
   const findStatusAndColor = (name) => {
     const alert = alerts.find(a => a.appid === name || a.host === name || a.instance === name);
     if (alert) {
-      const color = alert.status === 'Active' ? 'green' : alert.status === 'Firing' ? '#f39c12' : '#c30010';
-      return { status: alert.status, color };
+      const color = alert.severity === 'Critical' ? '#c30010' :
+                    alert.severity === 'Warning' ? '#f39c12' :
+                    'green';
+      return { status: alert.severity, color };
     }
     return { status: 'Unknown', color: '#c30010' };
   };
@@ -64,14 +70,20 @@ function convertToTree(relationships, alerts) {
   return Object.values(nodes).filter(node => !relationships.some(rel => rel.child_ci_name === node.label));
 }
 
-
+/**
+ * Recursively generates nodes and edges for ReactFlow visualization.
+ * @param {Object} node - Current node object.
+ * @param {number} x - X-coordinate for node positioning.
+ * @param {number} y - Y-coordinate for node positioning.
+ * @param {string|null} parentId - ID of the parent node.
+ * @param {number} level - Current depth level in the tree.
+ * @returns {Object} Nodes and Edges for ReactFlow.
+ */
 const generateNodesAndEdges = (node, x = 500, y = 50, parentId = null, level = 1) => {
   const nodes = [];
   const edges = [];
 
-  if (!node || !node.label) {
-    return { nodes, edges };
-  }
+  if (!node || !node.label) return { nodes, edges };
 
   const id = node.label.replace(/\s/g, '-');
   nodes.push({
@@ -106,43 +118,33 @@ const generateNodesAndEdges = (node, x = 500, y = 50, parentId = null, level = 1
   return { nodes, edges };
 };
 
+// Main Component for rendering the ReactFlow graph
 const BasicFlow = () => {
   const [alerts, setAlerts] = useState([]);
   const [relationships, setRelationships] = useState([]);
+  const { selectedIncident } = useIncident();
+
   const { nodes, edges } = generateNodesAndEdges(convertToTree(relationships, alerts)[0]);
 
-
-  const {selectedIncident} = useIncident();
-
   useEffect(() => {
-    if(!selectedIncident) {
-      return;
-    }
+    if (!selectedIncident) return;
+
     fetch("http://localhost:8000/dependency-map/", {
       method: "GET",
-      mode: "cors",  // Ensures cross-origin request
-      headers: {
-        "Content-Type": "application/json"
-      }
+      mode: "cors",
+      headers: { "Content-Type": "application/json" }
     })
       .then(response => response.json())
       .then(data => {
         const incidentId = selectedIncident.incident_id;
         setRelationships(data[incidentId] ? data[incidentId] : data.relationship);
-        setAlerts(selectedIncident.correlated_alerts)
+        setAlerts(selectedIncident.correlated_alerts);
       });
   }, [selectedIncident]);
 
-
-  
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        nodeTypes={nodeTypes}
-        fitView
-      >
+      <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
         <Background />
         <Controls />
       </ReactFlow>

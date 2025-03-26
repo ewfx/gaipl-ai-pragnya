@@ -1,4 +1,3 @@
-import { useState } from "react"
 import './IncidentCard.css'
 
 export const IncidentCard = ({incident, setSelectedIncident}) => {    

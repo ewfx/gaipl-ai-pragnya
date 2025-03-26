@@ -8,10 +8,9 @@
 
 .dependency-empty-panel {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     background-color: #ffffff;
+    flex-direction: column;
 
 }
 

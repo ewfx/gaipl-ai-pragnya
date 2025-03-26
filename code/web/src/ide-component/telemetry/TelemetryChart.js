@@ -1,3 +1,17 @@
+/**
+ * TelemetryChart Component
+ * 
+ * This component renders a Line Chart using Chart.js to visualize telemetry data.
+ * It supports customization for chart labels, axis titles, and line color.
+ *
+ * @param {Array} data - Array of objects with 'time' and 'metrics' properties.
+ * @param {string} label - Label for the dataset.
+ * @param {string} title - Title of the chart.
+ * @param {string} xText - X-axis label.
+ * @param {string} yText - Y-axis label.
+ * @param {string} lineColor - Color of the line.
+ */
+
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import {
@@ -11,6 +25,7 @@ import {
   Legend,
 } from 'chart.js';
 
+// Register necessary components for Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -21,10 +36,12 @@ ChartJS.register(
   Legend
 );
 
-const TelemetryChart = ({data, label, title, xText, yText, lineColor}) => {
-   
-  const labels = data.map(item => item.time);
-  const metricUsageData = data.map(item => item.metrics);
+const TelemetryChart = ({ data, label, title, xText, yText, lineColor }) => {
+  // Extract time labels and metric values for the chart
+  const labels = data.map((item) => item.time);
+  const metricUsageData = data.map((item) => item.metrics);
+
+  // Configure chart data
   const chartData = {
     labels,
     datasets: [
@@ -41,6 +58,7 @@ const TelemetryChart = ({data, label, title, xText, yText, lineColor}) => {
     ],
   };
 
+  // Configure chart options
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -60,9 +78,9 @@ const TelemetryChart = ({data, label, title, xText, yText, lineColor}) => {
           text: xText,
         },
         ticks: {
-            maxRotation: 45, // Rotate up to 45 degrees
-            minRotation: 45, // Ensure rotation
-          }
+          maxRotation: 45,
+          minRotation: 45,
+        },
       },
       y: {
         title: {
@@ -74,12 +92,7 @@ const TelemetryChart = ({data, label, title, xText, yText, lineColor}) => {
     },
   };
 
-  return <Line 
-            data={chartData} 
-            options={options} 
-             />;
+  return <Line data={chartData} options={options} />;
 };
-
-
 
 export default TelemetryChart;

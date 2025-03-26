@@ -12,7 +12,8 @@ export const DependencyTree = ({selectedIncident}) =>{
     return (
         selectedIncident === null ?
         <div className="dependency-empty-panel">
-            Please select an incident to work on
+                <h4 className="alert-heading"><b>Live Dependency Mapping</b></h4>
+                <div className="select-incident-message">Please select an incident to work on</div>
         </div> : 
         <div className="dependency-tree-container">
             <div className="dependency-container-header">

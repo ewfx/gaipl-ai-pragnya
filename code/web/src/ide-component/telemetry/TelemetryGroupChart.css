@@ -1,19 +1,30 @@
+/*
+  Telemetry Group Chart Styles
+  This stylesheet defines the layout and styles for the TelemetryGroupChart component.
+  It contains styles for both application and host charts.
+*/
+
+/* Main container for the telemetry chart */
 .telemetry-chart {
-    background-color: #FFF;
+    background-color: #FFF; /* White background for clear visibility */
 }
 
+/* Chart styling: Fixed width and height for consistent display */
 .chart {
     width: 450px;
     height: 300px;
 }
 
+/* Container that holds the charts and their respective headers */
 .telemetry-chart-container {
     padding: 20px;
 
+    /* Header styling for section titles */
     .telemetry-chart-header {
         text-align: start;
     }
 
+    /* Application metrics section - Layout using flex for responsiveness */
     .telemetry-chart-app {
         margin-bottom: 20px;
         display: flex;
@@ -22,6 +33,7 @@
         flex-wrap: wrap;
     }
 
+    /* Host metrics section - Similar layout to application section */
     .telemetry-chart-host {
         margin-bottom: 20px;
         display: flex;
@@ -29,4 +41,4 @@
         justify-content: space-evenly;
         flex-wrap: wrap;
     }
-}
+} /* End of .telemetry-chart-container */

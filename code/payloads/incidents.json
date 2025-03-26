@@ -65,7 +65,7 @@
           "host": "APP-SERVER-01",
           "status": "Active",
           "description": "Application PaymentService experiencing slow response time.",
-          "severity": "Critical",
+          "severity": "Clear",
           "timestamp": "2025-03-25T12:05:00Z",
           "eventSource": "BigPanda",
           "alertname": "App_Slow_Response",

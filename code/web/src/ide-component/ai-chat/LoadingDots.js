@@ -1,6 +1,5 @@
 import React from 'react';
 import './LoadingDots.css';
-import { Bot, Coffee } from 'lucide-react';
 import Lottie from 'lottie-react';
 
 import loadinAnim from '../img/loading.json'

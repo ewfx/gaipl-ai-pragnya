@@ -15,7 +15,7 @@ export const IncidentSummary = ({summary}) => {
                 <img  className="openai"
                 src={openai}
                 />
-                <h5 className="incident-summary-heading"><b>Incident Summary - OpenAI</b></h5>
+                <h5 className="incident-summary-heading"><b>Incident Summary - AI-Prajña</b></h5>
                 {/* <Button variant="danger" className="generate-button">Generate</Button> */}
                 
             </div>
