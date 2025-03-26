@@ -97,8 +97,7 @@ Optimizing the responses of the GenAI models to make them useful was the biggest
 ## 🏗️ Tech Stack
 - 🔹 Frontend: React 
 - 🔹 Backend:  Python and FastAPI 
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API
+- 🔹 Other: OpenAI API gpt-4o-mini-2024-07-18 Model
 
 ## 👥 Team
 - **Sachin Kulkarni**  
