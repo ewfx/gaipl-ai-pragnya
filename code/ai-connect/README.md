@@ -1,5 +1,5 @@
 # AI-Connect
-## This microservice is responsible for building Vector Databases that are required by the LLM to establish context and provide answers in that context. Additionally, the service provided REST endpoints to fetch answers from the LLM
+### This microservice is responsible for building Vector Databases that are required by the LLM to establish context and provide answers in that context. Additionally, the service provided REST endpoints to fetch answers from the LLM
 
 
 **To Install**: 
