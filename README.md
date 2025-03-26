@@ -4,8 +4,8 @@
 Prajñā is the state of wisdom which is higher than the knowledge obtained by reasoning and inference.
 (Wikipedia)
 
-**Prajña**, the **Integrated Platform Environment** is a one-stop shop for all relevant services, applications, tools, interfaces
-knowledge banks, etc. This is required by Service Desk Engineers to be effectively be notified, triage and resolve incidents.
+**Prajña**, the **Integrated Platform Environment** is a one-stop solution for all essential services, applications, tools, interfaces
+knowledge banks, etc. It equips Service Desk Engineers with everything they need to be effectively notified, triage and resolve incidents.
 The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby
 vastly increasing the amount of information and past knowledge available to the engineer to resolve incidents
 in the most efficient way thereby reducing the **MTTR**. <br/>
