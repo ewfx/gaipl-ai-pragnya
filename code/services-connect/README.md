@@ -1,5 +1,5 @@
-## Services-Connect
-# This microservice provides a Unified Interface to multiple services such as Monitoring and Metrics, CMDB, ServiceNow, and Telemetry.
+# Services-Connect
+## This microservice provides a Unified Interface to multiple services such as Monitoring and Metrics, CMDB, ServiceNow, and Telemetry.
 
 **To Install**: 
 > cd services-connect
