@@ -7,7 +7,7 @@
 > `poetry install`
 
 **To Run**:
-> `poetry run python -m uvicorn ai_connect1.main:app --port 9000`
+> `poetry run python -m uvicorn ai_connect.main:app --port 9000`
 
 **Docs Page**
 ![image](https://github.com/user-attachments/assets/b351baa6-ff38-433a-bb98-e62224020406)
