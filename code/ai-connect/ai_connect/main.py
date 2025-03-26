@@ -52,7 +52,11 @@ app = FastAPI(
     " building Vector Databases that establish the a specific Context."
     " This Context, coupled with the user queries are combined and fed"
     " into the LLM to generate answers",
-    lifespan=lifespan
+    lifespan=lifespan,
+    contact={
+        "name": "Team Pragnya",
+        "email": "sachink108@gmail.com",
+    },
 )
 
 app.add_middleware(
