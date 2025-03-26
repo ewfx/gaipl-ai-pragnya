@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import ReactFlow, { Background, Controls, Handle } from 'reactflow';
 import 'reactflow/dist/style.css';
+import { useIncident } from '../../context/IncidentContext';
 
 // Custom Node Component
 const CustomNode = ({ data }) => {
   return (
     <div style={{
       padding: '10px 20px',
-      borderRadius: '50%',
       backgroundColor: data.color || '#ccc',
       color: '#fff',
       fontWeight: 'bold',
       textAlign: 'center',
-      width: '100px',
-      height: '100px',
+      width: '200px',
+      height: '75px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center'
@@ -27,25 +27,51 @@ const CustomNode = ({ data }) => {
 
 const nodeTypes = { custom: CustomNode };
 
-const data = {
-  label: 'DB-SERVER-01',
-  status: 'Active',
-  relation: 'Depends On',
-  color: '#f39c12',
-  childs: [
-    { label: 'APP-SERVER-01', status: 'Active', relation: 'Depends On', color: '#3498db' },
-    { label: 'FIREWALL-01', status: 'Active', relation: 'Connected To', color: '#e74c3c',
-      childs: [
-        { label: 'ROUTER-01', status: 'Active', relation: 'Connected To', color: '#e74c3c' },
-        { label: 'SWITCH-01', status: 'Active', relation: 'Connected To', color: '#e74c3c' }
-      ]
+
+function convertToTree(relationships, alerts) {
+
+  if (!relationships || !relationships.length) {
+    return [];
+  }
+  const findStatusAndColor = (name) => {
+    const alert = alerts.find(a => a.appid === name || a.host === name || a.instance === name);
+    if (alert) {
+      const color = alert.status === 'Active' ? 'green' : alert.status === 'Firing' ? '#f39c12' : '#c30010';
+      return { status: alert.status, color };
     }
-  ]
-};
+    return { status: 'Unknown', color: '#c30010' };
+  };
+
+  const nodes = {};
+
+  relationships.forEach(rel => {
+    const parent = rel.parent_ci_name;
+    const child = rel.child_ci_name;
+
+    if (!nodes[parent]) {
+      const parentStatus = findStatusAndColor(parent);
+      nodes[parent] = { label: parent, status: parentStatus.status, relation: rel.relationship_type, color: parentStatus.color, childs: [] };
+    }
+
+    if (!nodes[child]) {
+      const childStatus = findStatusAndColor(child);
+      nodes[child] = { label: child, status: childStatus.status, relation: rel.relationship_type, color: childStatus.color, childs: [] };
+    }
+
+    nodes[parent].childs.push(nodes[child]);
+  });
+
+  return Object.values(nodes).filter(node => !relationships.some(rel => rel.child_ci_name === node.label));
+}
+
 
 const generateNodesAndEdges = (node, x = 500, y = 50, parentId = null, level = 1) => {
   const nodes = [];
   const edges = [];
+
+  if (!node || !node.label) {
+    return { nodes, edges };
+  }
 
   const id = node.label.replace(/\s/g, '-');
   nodes.push({
@@ -81,13 +107,34 @@ const generateNodesAndEdges = (node, x = 500, y = 50, parentId = null, level = 1
 };
 
 const BasicFlow = () => {
-  const { nodes, edges } = generateNodesAndEdges(data);
-  const [info, setInfo] = useState(null);
+  const [alerts, setAlerts] = useState([]);
+  const [relationships, setRelationships] = useState([]);
+  const { nodes, edges } = generateNodesAndEdges(convertToTree(relationships, alerts)[0]);
 
-  const onNodeClick = (event, node) => {
-    const nodeInfo = nodes.find((n) => n.id === node.id);
-    setInfo({ ...nodeInfo, x: event.clientX, y: event.clientY });
-  };
+
+  const {selectedIncident} = useIncident();
+
+  useEffect(() => {
+    if(!selectedIncident) {
+      return;
+    }
+    fetch("http://localhost:8000/dependency-map/", {
+      method: "GET",
+      mode: "cors",  // Ensures cross-origin request
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const incidentId = selectedIncident.incident_id;
+        setRelationships(data[incidentId] ? data[incidentId] : data.relationship);
+        setAlerts(selectedIncident.correlated_alerts)
+      });
+  }, [selectedIncident]);
+
+
+  
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <ReactFlow
@@ -95,7 +142,6 @@ const BasicFlow = () => {
         edges={edges}
         nodeTypes={nodeTypes}
         fitView
-        onNodeClick={onNodeClick} 
       >
         <Background />
         <Controls />

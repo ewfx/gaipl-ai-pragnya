@@ -14,7 +14,7 @@
         {
           "alert_id": "ALERT1001",
           "appid": "PaymentService",
-          "host": "DB-SERVER-01",
+          "host": "DB-SERVER-02",
           "status": "Active",
           "description": "Database connection failures detected.",
           "severity": "Critical",
@@ -31,7 +31,7 @@
           "alert_id": "ALERT1002",
           "appid": "PaymentService",
           "host": "DB-SERVER-01",
-          "status": "Active",
+          "status": "Firing",
           "description": "High CPU utilization on DB-SERVER-01.",
           "severity": "Critical",
           "timestamp": "2025-03-25T12:50:00Z",

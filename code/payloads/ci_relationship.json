@@ -1,18 +1,46 @@
-[
-  {
-    "sys_id": "REL-002",
-    "parent_ci": "APP-001",
-    "parent_ci_name": "PaymentService",
-    "child_ci": "DB-001",
-    "child_ci_name": "DB-SERVER-01",
-    "relationship_type": "Depends on"
-  },
-  {
-    "sys_id": "REL-003",
-    "parent_ci": "DB-001",
-    "parent_ci_name": "DB-SERVER-01",
-    "child_ci": "DB-INSTANCE-001",
-    "child_ci_name": "db-instance-01",
-    "relationship_type": "Depends on"
-  }
-]
+{
+  "INC1234567": [
+      {
+        "sys_id": "REL-002",
+        "parent_ci": "APP-001",
+        "parent_ci_name": "PaymentService",
+        "child_ci": "DB-001",
+        "child_ci_name": "DB-SERVER-01",
+        "relationship_type": "Depends on"
+      },
+      {
+        "sys_id": "REL-003",
+        "parent_ci": "DB-001",
+        "parent_ci_name": "DB-SERVER-01",
+        "child_ci": "DB-INSTANCE-001",
+        "child_ci_name": "db-instance-01",
+        "relationship_type": "Depends on"
+      },
+      {
+        "sys_id": "REL-004",
+        "parent_ci": "APP-001",
+        "parent_ci_name": "PaymentService",
+        "child_ci": "APP-002",
+        "child_ci_name": "APP-SERVER-01",
+        "relationship_type": "Depends on"
+      }
+  ],
+  "relationship": [
+      {
+        "sys_id": "REL-002",
+        "parent_ci": "APP-001",
+        "parent_ci_name": "PaymentService",
+        "child_ci": "DB-001",
+        "child_ci_name": "DB-SERVER-01",
+        "relationship_type": "Depends on"
+      },
+      {
+        "sys_id": "REL-003",
+        "parent_ci": "DB-001",
+        "parent_ci_name": "DB-SERVER-01",
+        "child_ci": "DB-INSTANCE-001",
+        "child_ci_name": "db-instance-01",
+        "relationship_type": "Depends on"
+      }
+  ]
+}

@@ -55,6 +55,7 @@ export const IncidentDetails = ({ selectedIncident }) => {
                             </div>
                             <div className="incident-heading-right icon-container">
                                 <div
+                                    data-title="Knowledge Base"
                                     className="icon icon-wrapper"
                                     role="button"
                                     aria-label="Open Knowledge Base"
@@ -68,6 +69,7 @@ export const IncidentDetails = ({ selectedIncident }) => {
                                 <div
                                     className="icon icon-wrapper"
                                     role="button"
+                                    data-title="Alerts"
                                     aria-label="View Alerts"
                                     tabIndex="0"
                                     onClick={openAlertModal}
@@ -81,6 +83,7 @@ export const IncidentDetails = ({ selectedIncident }) => {
                                     role="button"
                                     aria-label="Open Telemetry Data"
                                     tabIndex="0"
+                                    data-title="Telemetry"
                                     onClick={openTelemetry}
                                     onKeyDown={(e) => e.key === 'Enter' && openTelemetry()}
                                 >
