@@ -3,17 +3,16 @@
 
 Public repository for the WellsFargo 2025 Hackathon
 
-
+This microservice 
 poetry run uvicorn ai_connect.main:app --reload --port 9000 <br/>
 
-To test this server <br/>
 
-cd ai-tools <br/>
+**To Install**: 
+cd services-connect
 poetry install
 
-poetry run python tests\test_ws.ws
+**To Run**:
+poetry run python -m uvicorn services_connect.main:api 
 
-
-
-
-
+**Docs Page**
+![image](https://github.com/user-attachments/assets/983ad9cc-64d8-4e97-9f95-30ad515d719d)
