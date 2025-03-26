@@ -3,7 +3,7 @@ import './IncidentExplorer.css'
 import { IncidentCard } from "./IncidentCard";
 import Form from 'react-bootstrap/Form';
 
-export const IncidentExplorer = ({selectedIncident, setSelectedIncident}) => {
+export const IncidentExplorer = ({selectedIncident, setSelectedIncident, chatSessionId, setChatSessionId}) => {
     let [incidentList, setIncidentList] = useState([]);
     let [filteredIncidents, setFilteredIncidents] = useState([]);
     let [searchTerm, setSearchTerm] = useState("");
@@ -14,9 +14,10 @@ export const IncidentExplorer = ({selectedIncident, setSelectedIncident}) => {
             mode: "cors",  // Ensures cross-origin request
             headers: {
               "Content-Type": "application/json"
-            }
+            },
+            credentials: "include"
           })
-            .then(response => response.json())
+            .then(response => {return response.json()})
             .then(data => {console.log(data['incidents']); setIncidentList(data['incidents']); setFilteredIncidents(data['incidents']); })
     },[])
 
