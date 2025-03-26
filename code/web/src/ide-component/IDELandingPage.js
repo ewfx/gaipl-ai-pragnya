@@ -35,7 +35,7 @@ const IDELandingPage = () => {
             <Split
               className="split-horizontal"
               direction="horizontal"
-              sizes={[25,75]} 
+              sizes={[25,75]} // 3 Equal parts
               minSize={100}
               gutterSize={8}
             >

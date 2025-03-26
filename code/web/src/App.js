@@ -5,6 +5,7 @@ import { Header } from './ide-component/header/Header';
 import KnowledgeBaseModal from './ide-component/modal/KnowledgeBaseModal';
 import AlertModal from './ide-component/modal/AlertModal';
 import DiagramModal from './ide-component/modal/DiagramModal';
+import TelemetryModal from './ide-component/modal/TelemetryModal';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <DiagramModal/>
       <KnowledgeBaseModal/>
       <AlertModal/>
+      <TelemetryModal/>
     </div>
   );
 }
