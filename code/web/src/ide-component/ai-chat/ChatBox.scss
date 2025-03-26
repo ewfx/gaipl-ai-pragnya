@@ -39,6 +39,48 @@
     padding: 5px;
 }
 
+.loading-section{
+  .loading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .loading-text{   
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;   
+      span {
+          display: inline-block;
+          font-size: 0.8em;;
+          font-weight: 200;
+        }
+    }
+    .loading-animation{
+      
+      width: 1.5em;;
+  }
+    .loading04 {
+      span {
+        animation: loading04 2s infinite;
+        @for $i from 1 through 9 {
+          &:nth-child(#{$i+1}) {
+            animation-delay: #{$i*.1}s;
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes loading04 {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(2px);
+    }
+  
+  }
+}
+
 .custom-markdown h1 {
     font-size: 20px !important;
   }

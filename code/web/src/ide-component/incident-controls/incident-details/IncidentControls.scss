@@ -1,0 +1,149 @@
+.incident-controls{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.4em;        
+    width: 100%;
+    height: 100%;
+    gap: 0.5em;
+    align-items: flex-start;  
+    padding: 1em;
+    overflow-y: auto;
+    .auto-heal-section{
+        display: flex;
+        flex-direction: row;;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        p{
+            margin-bottom: 0em !important;
+        }
+        .loading04 {
+            span {
+                display: inline-block;
+                font-weight: 200;
+              animation: loading04 2s infinite;
+              @for $i from 1 through 20 {
+                &:nth-child(#{$i+1}) {
+                  animation-delay: #{$i*.1}s;
+                }
+              }
+            }
+        }       
+        
+        @keyframes loading04 {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(2px);
+          }
+        
+        }
+    }
+    .resolution-null{
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 0.5em;;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .remaining-section{
+        width: 100%;;
+        .autoheal-failed{
+            display: flex;
+            flex-direction: column;;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-bottom: 0.6em;;
+            .autoheal-failed-header{
+                width: 100%;;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                
+                h5, p{
+                    margin-bottom: 0 !important;
+                }
+                p{
+                    font-size: 0.7em !important;
+                    
+                }
+            }
+            
+        }
+        .resolution-steps-section{
+            display: flex;
+            flex-direction: column;
+            width: 100%;;
+            border-top: 1px solid black;
+            .resolution-steps-header{
+                width: 100%;;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 0.6em;
+                padding-bottom: 0.6em;
+                h5{
+                    margin-bottom: 0 !important;
+                }
+            }
+            p{
+                margin-bottom: 0 !important;
+            }
+            .bottom-section{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                padding-bottom: 1em;;
+                button{
+                    width: min-content;
+                }
+                .form-control:focus{
+                    box-shadow: none;
+                  }
+            }
+        }
+        .closure-section{
+            display: flex;
+            flex-direction: column;
+            width: 100%;;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            .closure-header{
+                width: 100%;;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 0.6em;
+                padding-bottom: 0.6em;
+                h5{
+                    margin-bottom: 0 !important;
+                }
+            }
+            p{
+                margin-bottom: 0 !important;
+            }
+            .bottom-section{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                padding-bottom: 1em;;
+                button{
+                    width: auto;
+                }
+                .form-control:focus{
+                    box-shadow: none;
+                  }
+            }
+        }
+    }
+    
+}

@@ -6,11 +6,13 @@ import Markdown from 'markdown-to-jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoadingDots from './LoadingDots';
-import './ChatBox.css'
+import './ChatBox.scss'
+import Lottie from 'lottie-react';
+import loadingAnim from '../img/loading.json';
 import { Send } from 'lucide-react';
 
 
-const ChatBox = ({initialMessage}) => {
+const ChatBox = ({initialMessage, chatSessionid}) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -74,6 +76,7 @@ const ChatBox = ({initialMessage}) => {
             headers: {
               "Content-Type": "application/json"
             },
+            credentials: "include",
             body: JSON.stringify({
               message: input
             })
@@ -81,6 +84,7 @@ const ChatBox = ({initialMessage}) => {
             .then(response => response.json())
             .then(data => {
               setLoading(false);
+              console.log(document.cookie)
               const aiMessage = {
                 position: 'left',
                 type: 'text',
@@ -130,8 +134,20 @@ const ChatBox = ({initialMessage}) => {
           />
         ))}
          {loading && (
-          <div style={{ display: 'flex', justifyContent: 'flex-start' }} id='loading-dots'>
-            <LoadingDots />
+          <div className="loading-section" style={{ display: 'flex', justifyContent: 'flex-start' }} id='loading-dots'>
+            {<div className="loading"><Lottie className="loading-animation" animationData={loadingAnim} loop={true}/>
+                <div className="loading-text loading04">
+                  <span>A</span>
+                  <span>n</span>
+                  <span>a</span>
+                  <span>l</span>
+                  <span>y</span>
+                  <span>z</span>
+                  <span>i</span>
+                  <span>n</span>
+                  <span>g</span>
+                </div>
+            </div>}
           </div>
         )}
         <div  />

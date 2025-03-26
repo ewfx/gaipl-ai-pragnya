@@ -12,6 +12,7 @@ const IDELandingPage = () => {
   let [selectedIncident, setSelectedIncident] = useState(null);
   let [relevantKnowledgeBase, setRelevantKnowledgeBase] = useState(null);
   const {setSelectedIncidentInContext} = useIncident();
+  let [chatSessionId, setChatSessionId] = useState(null);
 
   useEffect(() => {
     setSelectedIncidentInContext(selectedIncident);
@@ -39,11 +40,10 @@ const IDELandingPage = () => {
               gutterSize={8}
             >
               <div className="incident-explorer-container">
-                <IncidentExplorer selectedIncident={selectedIncident} setSelectedIncident={setSelectedIncident}/>
+                <IncidentExplorer selectedIncident={selectedIncident} setSelectedIncident={setSelectedIncident} chatSesssionId={chatSessionId} setChatSessionId={setChatSessionId}/>
               </div>
               <div className="incident-details-container">
-                <IncidentDetails selectedIncident={selectedIncident} />
-                
+                <IncidentDetails selectedIncident={selectedIncident} setChatSessionId={setChatSessionId}/>
               </div>
               </Split>
               {/* <div className="alerts-container">
@@ -67,10 +67,10 @@ const IDELandingPage = () => {
                 <DependencyTree selectedIncident = {selectedIncident} />
               </div>
                 <div className="ai-chat-container">
-                  <AiChat selectedIncident={selectedIncident} />
+                  <AiChat selectedIncident={selectedIncident} chatSessionId={chatSessionId}/>
                 </div>
                 <div className="incident-controls-container">
-                  <IncidentControls />
+                  <IncidentControls selectedIncident={selectedIncident}/>
                 </div>
                 </Split>
               </div>
