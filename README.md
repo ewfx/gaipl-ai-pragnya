@@ -24,7 +24,7 @@ _____________________________________________________
 knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
 The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby vastly increasing the amount of information and past 
 knowledge available in the system to resolve incidents in the most efficient way thereby reducing the **MTTR**. <br/>
-_____________________________________________________ <br/>
+_____________________________________________________ 
 
 ## 🎯 Vision
 The use of LLMs and agentic capabilities, will help in resolving incidents up to 80% faster thereby reducing OpEx on human resources.
