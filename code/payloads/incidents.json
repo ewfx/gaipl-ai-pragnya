@@ -65,7 +65,7 @@
           "host": "APP-SERVER-01",
           "status": "Active",
           "description": "Application PaymentService experiencing slow response time.",
-          "severity": "Clear",
+          "severity": "Warning",
           "timestamp": "2025-03-25T12:05:00Z",
           "eventSource": "BigPanda",
           "alertname": "App_Slow_Response",
@@ -124,18 +124,18 @@
         },
         {
           "alert_id": "ALERT1102",
-          "appid": "PaymentService",
+          "appid": "PaymentServiceS",
           "host": "FIREWALL-FW-05",
           "status": "Active",
           "description": "Firewall rule misconfiguration detected, affecting DB-SERVER-01 connectivity.",
-          "severity": "Major",
+          "severity": "Warning",
           "timestamp": "2025-03-25T12:45:00Z",
           "eventSource": "CA Spectrum",
           "alertname": "Firewall_Misconfig",
           "alertType": "Node",
           "environment": "Production",
           "eventName": "Security Policy Issue",
-          "instance": "firewall-instance-01",
+          "instance": "firewall-instance-01s",
           "job": "network-security"
         }
      ]

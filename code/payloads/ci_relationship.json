@@ -25,20 +25,12 @@
         "relationship_type": "Depends on"
       },
       {
-        "sys_id": "REL-005",
-        "parent_ci": "SW-002",
-        "parent_ci_name": "SWITCH-SW-02",
-        "child_ci": "DB-001",
-        "child_ci_name": "DB-SERVER-01",
-        "relationship_type": "Depends on"
-      },
-      {
         "sys_id": "REL-006",
         "parent_ci": "FW-005",
-        "parent_ci_name": "FIREWALL-FW-05",
-        "child_ci": "DB-001",
-        "child_ci_name": "DB-SERVER-01",
-        "relationship_type": "Depends on"
+        "parent_ci_name": "APP-SERVER-01",
+        "child_ci": "FW-005",
+        "child_ci_name": "FIREWALL-FW-05",
+        "relationship_type": "Connected to"
       }
   ],
   "relationship": [
