@@ -58,14 +58,19 @@ Optimizing the responses of the GenAI models to make them useful was the biggest
 
 ## 🏃 How to Run
 1. Clone the repository  
-   ```sh
-   git clone https://github.com/your-repo.git
    ```
-2. Install dependencies  
-   ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   git clone https://github.com/ewfx/gaipl-ai-pragnya.git
    ```
-3. Run the project  
+2. Pre-requisites
+   - **NodeJS** latest version
+   - **Python** v3.12.9
+   - **Poetry** >2.0.0
+   - **LLM** gpt-4o-mini-2024-07-18
+   ```sh
+   cd web
+   npm install  
+   ```
+4. Run the project  
    ```sh
    npm start  # or python app.py
    ```
