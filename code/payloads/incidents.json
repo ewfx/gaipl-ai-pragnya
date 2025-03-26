@@ -148,6 +148,38 @@
           "eventName": "Connection Limit Exceeded",
           "instance": "db1.instance",
           "job": "Database Monitoring"
+        },
+        {
+          "alert_id": "ALERT1101",
+          "appid": "PaymentService",
+          "host": "SWITCH-SW-02",
+          "status": "Active",
+          "description": "Switch SW-02 is down, affecting multiple database servers.",
+          "severity": "Major",
+          "timestamp": "2025-03-25T12:45:00Z",
+          "eventSource": "CASpectrum",
+          "alertname": "Switch_Down",
+          "alertType": "Node",
+          "environment": "Production",
+          "eventName": "Network Device Failure",
+          "instance": "switch-instance-01",
+          "job": "network-monitoring"
+        },
+        {
+          "alert_id": "ALERT1102",
+          "appid": "PaymentService",
+          "host": "FIREWALL-FW-05",
+          "status": "Active",
+          "description": "Firewall rule misconfiguration detected, affecting DB-SERVER-01 connectivity.",
+          "severity": "Major",
+          "timestamp": "2025-03-25T12:45:00Z",
+          "eventSource": "CA Spectrum",
+          "alertname": "Firewall_Misconfig",
+          "alertType": "Node",
+          "environment": "Production",
+          "eventName": "Security Policy Issue",
+          "instance": "firewall-instance-01",
+          "job": "network-security"
         }
       ]
     },
