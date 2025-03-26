@@ -34,7 +34,7 @@ export const IncidentControls = ({selectedIncident}) => {
         setTimeout(() => {
             setAutoHealing(false);
             setAiText("")
-        }, 100); // 5 seconds delay
+        }, 10000); // 5 seconds delay
         }, [autoHealing]);
 
     useEffect(() => {
