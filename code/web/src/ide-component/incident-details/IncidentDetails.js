@@ -4,7 +4,7 @@ import { IncidentSummary } from "./IncidentSummary";
 import moment from 'moment';
 import { useModal } from "../../context/ModalContext";
 import { alertModal, knowledgeBaseModal, telemetryModal } from "../modal/modalconstant";
-import { BookOpenText, ChartLine, TriangleAlert } from 'lucide-react';
+import { Activity, BookOpenText, ChartLine, Lightbulb, TriangleAlert } from 'lucide-react';
 
 export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
 
@@ -68,10 +68,10 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                     onClick={openKnowledgeBaseModal}
                                     onKeyDown={(e) => e.key === 'Enter' && openKnowledgeBaseModal()}
                                 >
-                                    <BookOpenText color="green" size={25} />
+                                    <BookOpenText color="#3498db" size={25}  style={{filter: 'drop-shadow(0px 0px 8px #3498db)'}}/>
                                 </div>
 
-                                <div
+                                {/* <div
                                     className="icon icon-wrapper"
                                     role="button"
                                     data-title="Alerts"
@@ -80,8 +80,8 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                     onClick={openAlertModal}
                                     onKeyDown={(e) => e.key === 'Enter' && openAlertModal()}
                                 >
-                                    <TriangleAlert color="rgb(243, 156, 18)" size={25} />
-                                </div>
+                                    <Lightbulb color="#f39c12" size={25} style={{filter: 'drop-shadow(0px 0px 8px #f39c12)'}} />
+                                </div> */}
 
                                 <div
                                     className="icon icon-wrapper"
@@ -92,7 +92,7 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                     onClick={openTelemetry}
                                     onKeyDown={(e) => e.key === 'Enter' && openTelemetry()}
                                 >
-                                    <ChartLine color="green" size={25} />
+                                    <Activity color="#e74c3c" size={25} style={{filter: 'drop-shadow(0px 0px 8px #e74c3c)'}} />
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                             <div className="incident-summary-section">
                                 <IncidentSummary summary={summary} />
                             </div>
-                            <div className="incident-caller-details">
+                            {/** <div className="incident-caller-details">
                                 <div className="incident-caller">
                                     <h5><b>Created By: &nbsp;</b></h5>
                                     <p>
@@ -122,7 +122,7 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                         {selectedIncident.short_description}
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
             }

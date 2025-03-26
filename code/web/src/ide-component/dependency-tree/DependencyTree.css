@@ -22,6 +22,7 @@
     .icon {
         margin-left: 5px;
         cursor: pointer;
+        height: fit-content;
     }
 }
 

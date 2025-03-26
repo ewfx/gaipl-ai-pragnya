@@ -21,7 +21,7 @@ export const IncidentSummary = ({summary}) => {
             </div>
             
             <div className="summary-body">
-                {!summary ? <LoadingDots text={`Analyzing incident data... Generating a precise summary`} />  :  <Markdown>{summary}</Markdown>}
+                {!summary ? <LoadingDots text={`Analyzing incident data... Generating a precise summary`} />  :  <div className='custom-markdown'><Markdown>{summary}</Markdown></div>}
             </div>
         </div>        
     )

@@ -4,9 +4,11 @@ import './Modal.css';
 import { useModal } from '../../context/ModalContext';
 import TelemetryGroupChart from '../telemetry/TelemetryGroupChart';
 import { telemetryModal } from './modalconstant';
+import { useIncident } from '../../context/IncidentContext';
 
 const TelemetryModal = () => {
   const { isModalOpen, closeModal } = useModal();
+  const {selectedIncident} = useIncident();
 
   if (!isModalOpen(telemetryModal)) return null;
 
@@ -21,7 +23,7 @@ const TelemetryModal = () => {
 
         {/* Content Section for the React Flow Diagram */}
         <div className="modal-dep-body">
-            <TelemetryGroupChart />
+            <TelemetryGroupChart selectedIncident ={selectedIncident} />
         </div>
       </div>
     </div>

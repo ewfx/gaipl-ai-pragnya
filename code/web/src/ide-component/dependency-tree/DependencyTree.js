@@ -21,6 +21,7 @@ export const DependencyTree = ({selectedIncident}) =>{
                     role="button"
                     aria-label="Open Knowledge Base"
                     tabIndex="0"
+                    
                     onKeyDown={(e) => e.key === 'Enter' && openDependencyTreeModal}
                 >
                     <SquareArrowOutUpRight size={25} />

@@ -4,7 +4,20 @@
     background-color: rgb(241, 241, 241);
     padding: 4px 0;
     border-radius: 0.2em;
+    border: 5px solid rgb(241, 241, 241);
 
+}
+
+.critical {
+    border-left-color: #e74c3c;
+}
+
+.major {
+    border-left-color: #f39c12;
+}
+
+.warning {
+    border-left-color: #f1c40f;
 }
   
 .alert-card-header {
