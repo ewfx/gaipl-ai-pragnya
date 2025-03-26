@@ -16,12 +16,6 @@ export const Alerts = ({ selectedIncident }) => {
   // State to store the list of incidents
   const [incidentList, setIncidentList] = useState(Incidents);
 
-  /**
-   * Logs the selected incident to the console whenever it changes.
-   */
-  useEffect(() => {
-    console.log('Selected Incident:', selectedIncident);
-  }, [selectedIncident]);
 
   return (
     <>
