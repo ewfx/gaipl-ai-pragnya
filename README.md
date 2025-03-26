@@ -19,7 +19,7 @@ _____________________________________________________
 
 ---
 
-## 🎯 Introduction
+## Introduction
 **Prajña**, the **Integrated Platform Environment** is a one-stop solution that integrates insights from services, applications, tools, infrastructure,
 knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
 The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby vastly increasing the amount of information and past 
