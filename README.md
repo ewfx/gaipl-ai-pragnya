@@ -67,39 +67,42 @@ Optimizing the responses of the GenAI models to make them useful was the biggest
    - **Poetry** >2.0.0
    - **LLM** gpt-4o-mini-2024-07-18
    ```sh
-   cd web
+   cd code/web
    npm install
    
    cd ..
-   cd services-connect/
+   cd code/services-connect/
    poetry install
    
    cd ..
-   cd ai-connect/
+   cd code/ai-connect/
    poetry install
    ```
 4. Run the project
    >** *Note*: This project requires a `.env` file to be created in the `ai-connect` directory. <br/>**
    >**This file will contain the API private key to access the LLM services. Please contact Sachin Kulkarni to obtain the key.**
    ```sh
-   cd services-connect/
+   cd code/services-connect/
    poetry run python -m uvicorn services_connect.main:api
 
    cd ..
-   cd ai-connect/
+   cd code/ai-connect/
    poetry run python -m uvicorn ai_connect.main:app --port 9000
 
    cd ..
-   cd web/
+   cd code/web/
    npm start  # or python app.py
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
+- 🔹 Frontend: React 
+- 🔹 Backend:  Python and FastAPI 
 - 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 Other: OpenAI API
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Sachin Kulkarni**  
+- **Barath Srinivasan**
+- **Ramu Chittiprolu**
+- **Saran Kaarthik**
+- **Subrahmanyam Sistha** 
