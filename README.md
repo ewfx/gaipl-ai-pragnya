@@ -8,7 +8,8 @@ Prajñā is the state of wisdom which is higher than the knowledge obtained by r
 knowledge banks, etc. This is required by Service Desk Engineers to be effectively be notified, triage and resolve incidents.
 The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby
 vastly increasing the amount of information and past knowledge available to the engineer to resolve incidents
-in the most efficient way
+in the most efficient way thereby reducing the **MTTR** 
+Most importantly the usage of LLMs and agentic capabilities, will free up a large amount of Service Desk Engineers to take up challenging tasks and building the next generation of applications.
 
 
 ## 📌 Table of Contents
