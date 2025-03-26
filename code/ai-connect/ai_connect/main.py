@@ -104,7 +104,7 @@ def add_incident_context(incident_id: str,
 
     try:
         prompt = [
-            {"role": "system", "content": "You work on incident resolution, you have to provide all questions asked to you in a readable format, with markdown and appropriate formatting, send atleast 2 paras everytime. Also analyse the impact based on the given data."},
+            {"role": "system", "content": "You work on incident resolution, you have to provide all questions asked to you in a readable format. Also analyse the impact based on the given data."},
             {"role": "system", "content": f"Relevant context from previous documents:\n{'\n'.join(context)}"},
             {"role": "user", "content": f"Given this incident data, generate a short summary:\n{incident_text}"}
         ]
