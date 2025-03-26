@@ -79,8 +79,8 @@ Optimizing the responses of the GenAI models to make them useful was the biggest
    poetry install
    ```
 4. Run the project
-   >**Note**: This project a .env file to be created in the `ai-connect` directory. <br/>
-   >This file will contain the API private key to access the LLM services. Please contact Sachin Kulkarni to obtain the key.
+   >** *Note*: This project requires a `.env` file to be created in the `ai-connect` directory. <br/>**
+   >**This file will contain the API private key to access the LLM services. Please contact Sachin Kulkarni to obtain the key.**
    ```sh
    cd services-connect/
    poetry run python -m uvicorn services_connect.main:api
