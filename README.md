@@ -11,7 +11,8 @@ vastly increasing the amount of information and past knowledge available to the 
 in the most efficient way thereby reducing the **MTTR**. <br/>
 
 _____________________________________________________
-Most importantly the usage of LLMs and agentic capabilities, will free up a large amount of Service Desk Engineers to take up challenging tasks and building the next generation of applications.
+Most importantly the usage of LLMs and agentic capabilities, will free up a large amount of Service Desk Engineers to take up challenging tasks and build the next generation of applications.
+_____________________________________________________
 
 
 ## 📌 Table of Contents
