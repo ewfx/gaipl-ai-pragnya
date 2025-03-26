@@ -39,13 +39,15 @@ This will result in a large number of Service Desk Engineers getting opportuniti
 ![Screenshot 1](link-to-image)
 
 ## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+The Bank spends a significant amount of money and time to triage and resolve production incidents that can directly impact customers.
+One of the main challenges in resolving incidents is getting a consolidated, and ready to use, information pertaining to the incident.
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+**Prajña**, the **Integrated Platform Environment** is a one-stop solution that integrates insights from services, applications, tools, infrastructure,
+knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
+
 
 ## 🚧 Challenges We Faced
 Describe the major technical or non-technical challenges your team encountered.
