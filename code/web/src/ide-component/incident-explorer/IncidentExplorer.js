@@ -18,7 +18,7 @@ export const IncidentExplorer = ({selectedIncident, setSelectedIncident, chatSes
             credentials: "include"
           })
             .then(response => {return response.json()})
-            .then(data => {console.log(data['incidents']); setIncidentList(data['incidents']); setFilteredIncidents(data['incidents']); })
+            .then(data => {setIncidentList(data['incidents']); setFilteredIncidents(data['incidents']); })
     },[])
 
     useEffect(() => {

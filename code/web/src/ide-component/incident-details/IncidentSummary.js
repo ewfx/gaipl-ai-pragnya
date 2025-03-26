@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react"
 import './IncidentSummary.scss'
-import Button from 'react-bootstrap/Button';
 import openai from '../img/openai.svg'
 import Markdown from "markdown-to-jsx";
 import LoadingDots from "../ai-chat/LoadingDots";

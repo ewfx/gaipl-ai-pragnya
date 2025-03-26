@@ -5,13 +5,7 @@ import cart from '../img/cart.png'
 export const Header =({}) =>{
     return(
         <div className='header'>
-            <img className="cart"
-                src={cart}
-            />
-            <img className="logo"
-                src={logo}
-            />
-            <h3>&nbsp; | Integrated Platform Environment</h3>
+            <h3>Integrated Platform Environment</h3>
         </div>
     )
 }

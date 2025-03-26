@@ -14,7 +14,7 @@ export const KnowledgeBase = ({selectedIncident, relevantKnowledgebase}) => {
             }
           })
             .then(response => response.json())
-            .then(data => {console.log(data['knowledge_articles']); setKnowledgeBase(data['knowledge_articles'])})
+            .then(data => {setKnowledgeBase(data['knowledge_articles'])})
     },[])
 
     return (
