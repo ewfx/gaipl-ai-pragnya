@@ -70,7 +70,7 @@ const IDELandingPage = () => {
                   <AiChat selectedIncident={selectedIncident} chatSessionId={chatSessionId}/>
                 </div>
                 <div className="incident-controls-container">
-                  <IncidentControls />
+                  <IncidentControls selectedIncident={selectedIncident}/>
                 </div>
                 </Split>
               </div>
