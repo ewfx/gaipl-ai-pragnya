@@ -11,7 +11,7 @@ export const IncidentCard = ({incident, selectedIncident, setSelectedIncident}) 
     
     return (
         <div className={(incident === selectedIncident ? "incident-card selected " : "incident-card ") + (getBorderColor())} 
-                onClick={() => {setSelectedIncident(incident); console.log(incident)}}
+                onClick={() => {setSelectedIncident(incident);}}
                 role="button"
                 tabIndex="0"
                 aria-labelledby={`incident-number-${incident.incident_id}`}

@@ -7,6 +7,7 @@ import Lottie from 'lottie-react';
 import loadingAnim from '../img/loading.json';
 import { Send } from 'lucide-react';
 import './ChatBox.scss';
+import { useIncident } from '../../context/IncidentContext';
 
 /**
  * ChatBox Component
@@ -28,6 +29,7 @@ const ChatBox = ({ initialMessage, chatSessionId }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+
 
   // Initialize chat with an initial message if available
   useEffect(() => {

@@ -129,7 +129,7 @@ const BasicFlow = () => {
   useEffect(() => {
     if (!selectedIncident) return;
 
-    fetch("http://localhost:8000/dependency-map/", {
+    fetch(`http://localhost:8000/dependency-map/`, {
       method: "GET",
       mode: "cors",
       headers: { "Content-Type": "application/json" }
