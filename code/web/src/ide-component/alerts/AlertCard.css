@@ -16,6 +16,10 @@
     border-left-color: #f39c12;
 }
 
+.clear {
+    border-left-color: #065627;
+}
+
 .warning {
     border-left-color: #f1c40f;
 }
