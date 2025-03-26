@@ -11,8 +11,9 @@ vastly increasing the amount of information and past knowledge available to the 
 in the most efficient way thereby reducing the **MTTR**. <br/>
 
 _____________________________________________________
-Most importantly the usage of LLMs and agentic capabilities, will free up a large amount of Service Desk Engineers to take up challenging tasks and build the next generation of applications.
-_____________________________________________________
+Benfits to the Organization
+The use of LLMs and agentic capabilities, will help in resolving incidents up to 80% faster thereby reducing costs.
+Additonally, a large number of Service Desk Engineers will have the opportunity to upskill and contribute towards building the generation applications.
 
 
 ## 📌 Table of Contents
