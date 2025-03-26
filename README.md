@@ -3,16 +3,6 @@
 **Prajña** (Sanskrit: **प्रज्ञा**) is the highest and purest form of wisdom, intelligence and understanding. 
 Prajñā is the state of wisdom which is higher than the knowledge obtained by reasoning and inference.
 (Wikipedia)
-
-**Prajña**, the **Integrated Platform Environment** is a one-stop solution for all essential services, applications, tools, interfaces
-knowledge banks, etc. It equips Service Desk Engineers with everything they need to be effectively notified, triage and resolve incidents.
-The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby
-vastly increasing the amount of information and past knowledge available to the engineer to resolve incidents
-in the most efficient way thereby reducing the **MTTR**. <br/>
-
-_____________________________________________________
-The use of LLMs and agentic capabilities, will help in resolving incidents up to 80% faster thereby reducing costs.
-Additonally, a large number of Service Desk Engineers will have the opportunity to upskill and contribute towards building the generation applications.
 _____________________________________________________
 
 
@@ -30,7 +20,16 @@ _____________________________________________________
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
+**Prajña**, the **Integrated Platform Environment** is a one-stop solution that integrates insights from services, applications, tools, infrastructure,
+knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
+The Wisdom or Prajña (प्रज्ञा) comes from **integrating GenAI** into the platform thereby vastly increasing the amount of information and past 
+knowledge available in the system to resolve incidents in the most efficient way thereby reducing the **MTTR**. <br/>
+_____________________________________________________ <br/>
+
+## 🎯 Vision
+The use of LLMs and agentic capabilities, will help in resolving incidents up to 80% faster thereby reducing OpEx on human resources.
+This will result in a large number of Service Desk Engineers getting opportunities to upskill and contribute towards engineering work.
+
 
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
