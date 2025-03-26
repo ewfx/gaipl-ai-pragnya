@@ -1,11 +1,7 @@
 # Wellsfargo 2025 Hackathon
 ## Gen AI Integrated Platform Environment
 
-Public repository for the WellsFargo 2025 Hackathon
-
-This microservice 
-poetry run uvicorn ai_connect.main:app --reload --port 9000 <br/>
-
+This microservice provides a Unified Interface to multiple services such as Monitoring and Metrics, CMDB, ServiceNow, and Telemetry.
 
 **To Install**: 
 cd services-connect
