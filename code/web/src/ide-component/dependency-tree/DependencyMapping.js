@@ -100,20 +100,6 @@ const BasicFlow = () => {
         <Background />
         <Controls />
       </ReactFlow>
-      {info && (
-        <div style={{
-          position: 'block',
-          top: info.y + 10,
-          left: info.x + 10,
-          backgroundColor: '#fff',
-          padding: '10px',
-          borderRadius: '8px',
-          boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-        }}>
-          <div onClick={() => setInfo(null)} style={{'font-size':'14px','text-align':'right', cursor: 'pointer'}}><b>X</b></div>
-          <p>{info.data.label}</p>
-        </div>
-      )}
     </div>
   );
 };

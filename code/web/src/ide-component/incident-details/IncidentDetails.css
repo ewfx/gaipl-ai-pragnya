@@ -33,9 +33,7 @@
                     cursor: pointer;
                 }
 
-                .icon:hover{
-                    opacity: 0.8;
-                }
+                
             }
 
             .incident-heading-left{
@@ -119,3 +117,46 @@
         text-align: start;
     }
 }
+
+.icon-container {
+    display: flex;
+    gap: 20px;
+    margin-right: 15px;
+  }
+  
+  .icon-wrapper {
+    position: relative;
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  /* Hover Effect */
+  .icon-wrapper:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Tooltip Styling */
+  .icon-wrapper::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: calc(-30px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  /* Show Tooltip on Hover */
+  .icon-wrapper:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+  }
+  

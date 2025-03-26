@@ -17,7 +17,12 @@ export const DependencyTree = ({selectedIncident}) =>{
         <div className="dependency-tree-container">
             <div className="dependency-container-header">
                 <div className="title"><h4><b>Live Dependency Mapping</b></h4></div>
-                <div className="icon"  onClick={openDependencyTreeModal}>
+                <div className="icon"  onClick={openDependencyTreeModal}
+                    role="button"
+                    aria-label="Open Knowledge Base"
+                    tabIndex="0"
+                    onKeyDown={(e) => e.key === 'Enter' && openDependencyTreeModal}
+                >
                     <SquareArrowOutUpRight size={25} />
                 </div>
             </div>
