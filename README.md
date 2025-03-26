@@ -47,14 +47,14 @@ One of the main challenges in resolving incidents is getting a consolidated, and
 knowledge banks, etc. It enables Service Desk Engineers with everything they need to be effectively triage, resolve incidents and escalate incidents.
 
 ## 🛠️ How We Built It
-The UserInterface was first modelled using Figma. Once we locked down the UI, React was selected to be the front end application.
-The microservices were build using FastAPI. <br/>
-The LLM used is OpenAI's `text-embedding-ada-002` model.
-
-To 
+The UserInterface was first modelled using `Figma`. <br/>
+Once we locked down the UI, `React` was selected to be the front-end application.
+The microservices were built using `FastAPI`. <br/>
+The LLM used is OpenAI's `text-embedding-ada-002` model.<br/>
+The team's SME generated payloads to mock metrics, telemetry, incidents, alerts, dependencies, and knowledge articles. <br/>
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+Optimizing the responses of the GenAI models to make them useful was the biggest challenge.
 
 ## 🏃 How to Run
 1. Clone the repository  
