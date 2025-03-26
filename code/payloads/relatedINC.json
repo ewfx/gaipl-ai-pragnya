@@ -1,0 +1,68 @@
+{
+  "incident_id": "INC9876543",
+  "caller": "AIOps-account",
+  "short_description": "PaymentService experiencing degraded performance",
+  "description": "PaymentService application is experiencing slow response times and intermittent failures. This is likely due to underlying database performance issues.",
+  "priority": "P1",
+  "assignment_group": "Application Support",
+  "assigned_to": "Kanala Mohan",
+  "state": "In Progress",
+  "created_at": "2025-03-25T12:55:00Z",
+  "correlated_alerts": [
+    {
+      "alert_id": "ALERT2001",
+      "appid": "PaymentService",
+      "host": "APP-SERVER-01",
+      "status": "Active",
+      "description": "High response time observed in PaymentService API calls.",
+      "severity": "Critical",
+      "timestamp": "2025-03-25T12:45:00Z",
+      "eventSource": "APM Tool",
+      "alertname": "High_Response_Time",
+      "alertType": "Application",
+      "environment": "Production",
+      "eventName": "API Latency Spike",
+      "job": "application-monitoring"
+    },
+    {
+      "alert_id": "ALERT2002",
+      "appid": "PaymentService",
+      "host": "APP-SERVER-01",
+      "status": "Active",
+      "description": "Increased transaction failures detected in PaymentService.",
+      "severity": "Critical",
+      "timestamp": "2025-03-25T12:50:00Z",
+      "eventSource": "APM Tool",
+      "alertname": "Transaction_Failure",
+      "alertType": "Application",
+      "environment": "Production",
+      "eventName": "Service Unavailable",
+      "job": "application-monitoring"
+    }
+  ],
+  "related_incidents": [
+    {
+      "incident_id": "INC1234567",
+      "impact": "Root cause traced to database failures affecting PaymentService",
+      "status": "In Progress",
+      "correlation_reason": "Database connection failures, high CPU usage, and disk IO issues impacting PaymentService application performance."
+    }
+  ],
+  "affected_business_application": {
+    "business_application": "PaymentService",
+    "status": "Degraded",
+    "business_impact": "Transaction failures and slow processing affecting payment operations",
+    "related_infrastructure": [
+      {
+        "ci_name": "DB-SERVER-01",
+        "ci_type": "Database Server",
+        "impact": "High CPU, Memory Pressure, Disk IO bottleneck"
+      },
+      {
+        "ci_name": "APP-SERVER-01",
+        "ci_type": "Application Server",
+        "impact": "High response time, transaction failures"
+      }
+    ]
+  }
+}
