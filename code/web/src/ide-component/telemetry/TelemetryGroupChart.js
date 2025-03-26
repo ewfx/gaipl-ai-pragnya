@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import moment from "moment";
 import './TelemetryGroupChart.css';
 import TelemetryChart from "./TelemetryChart";
@@ -10,29 +10,24 @@ const TelemetryGroupChart = ({selectedIncident}) => {
     const [hostData, setHostData] = useState(null);
 
     useEffect(() => {
-    fetch("http://localhost:8000/telemetry", {
-        method: "GET",
-        mode: "cors",  // Ensures cross-origin request
-        headers: {
-          "Content-Type": "application/json"
+        if (selectedIncident === null) {
+            return;
         }
-      })
-        .then(response => response.json())
-        .then(data => {
-            setAppData(data['appid']);
-            setHostData(data['Host']);
-      })
+        fetch("http://localhost:8000/telemetry", {
+            method: "GET",
+            mode: "cors",  // Ensures cross-origin request
+            headers: {
+            "Content-Type": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                setAppData(data['appid']);
+                setHostData(data['Host']);
+        })
     },[selectedIncident])
 
-      const prepreData = (data, fields)=>{
-            const result = data.map((item)=>{
-                return {
-                    'time': moment(item.Timestamp).format("HH:mm"),
-                    'metrics': item[fields]
-                }
-            });
-            return result;
-      }
+     
 
       const groupByAppID = (data) => {
         const groupedData = data.reduce((acc, item) => {
@@ -70,15 +65,15 @@ const TelemetryGroupChart = ({selectedIncident}) => {
                     <h4 className="telemetry-chart-heading" style={{textAlign:'center'}}><b>Application Metrics</b></h4>
                 </div>
                 {
-                    groupByAppID(appData).map((app) => {
+                    groupByAppID(appData).map((app, index) => {
                         const appname = Object.keys(app)[0];
                         const appData = app[appname]
-                        return (                        <>
+                        return <React.Fragment key={appname || index}>
                             <div className="telemetry-chart-header">
-                                <h4 className="telemetry-chart-heading"><b>{appname}</b></h4>
+                              <h4 className="telemetry-chart-heading"><b>{appname}</b></h4>
                             </div>
-                            <TelementryAppChart appData={appData}/>
-                        </>)
+                            <TelementryAppChart appData={appData} />
+                          </React.Fragment>
                     })
                 }
                 <hr />
@@ -86,15 +81,15 @@ const TelemetryGroupChart = ({selectedIncident}) => {
                     <h4 className="telemetry-chart-heading" style={{textAlign:'center'}}><b>Infrastructure Metrics</b></h4>
                 </div>
                 {
-                    groupByHost(hostData).map((app) => {
+                    groupByHost(hostData).map((app, index) => {
                         const hostname = Object.keys(app)[0];
                         const hostData = app[hostname]
-                        return (                        <>
+                        return (                        <React.Fragment key={hostname || index}>
                             <div className="telemetry-chart-header">
                                 <h4 className="telemetry-chart-heading"><b>{hostname}</b></h4>
                             </div>
                             <TelementryHostChart hostData={hostData}/>
-                        </>)
+                        </React.Fragment>)
                     })
                 }
               </div>

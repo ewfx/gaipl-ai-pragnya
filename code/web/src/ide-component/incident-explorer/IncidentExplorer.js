@@ -38,7 +38,7 @@ export const IncidentExplorer = ({selectedIncident, setSelectedIncident, chatSes
             <div className="incident-card-container">
                 {filteredIncidents.map((incident, index) => {
                     return(
-                        <IncidentCard incident={incident} selectedIncident={selectedIncident} setSelectedIncident={setSelectedIncident}/>
+                        <IncidentCard key={incident.incident_id} incident={incident} selectedIncident={selectedIncident} setSelectedIncident={setSelectedIncident}/>
                     )
                 })}
             </div>

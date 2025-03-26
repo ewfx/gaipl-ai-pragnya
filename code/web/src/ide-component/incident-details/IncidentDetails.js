@@ -68,7 +68,7 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                     onClick={openKnowledgeBaseModal}
                                     onKeyDown={(e) => e.key === 'Enter' && openKnowledgeBaseModal()}
                                 >
-                                    <BookOpenText color="green" size={25} />
+                                    <BookOpenText color="#3498db" size={25}  style={{filter: 'drop-shadow(0px 0px 8px #3498db)'}}/>
                                 </div>
 
                                 <div
@@ -80,7 +80,7 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                     onClick={openAlertModal}
                                     onKeyDown={(e) => e.key === 'Enter' && openAlertModal()}
                                 >
-                                    <TriangleAlert color="rgb(243, 156, 18)" size={25} />
+                                    <TriangleAlert color="#f39c12" size={25} style={{filter: 'drop-shadow(0px 0px 8px #f39c12)'}} />
                                 </div>
 
                                 <div
@@ -92,7 +92,7 @@ export const IncidentDetails = ({selectedIncident, setChatSessionId}) => {
                                     onClick={openTelemetry}
                                     onKeyDown={(e) => e.key === 'Enter' && openTelemetry()}
                                 >
-                                    <ChartLine color="green" size={25} />
+                                    <ChartLine color="#e74c3c" size={25} style={{filter: 'drop-shadow(0px 0px 8px #e74c3c)'}} />
                                 </div>
                             </div>
                         </div>

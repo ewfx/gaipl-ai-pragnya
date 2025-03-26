@@ -11,7 +11,7 @@ const AlertCard = ({ title, alert }) => {
   };
 
   return (
-    <div className={`alert-card-container ${isOpen ? 'active' : ''}`}>      {
+    <div className={`alert-card-container ${alert.severity.toLowerCase()} ${isOpen ? 'active' : ''}`}>      {
         /* Header with Title and Arrow */}
       <div className="alert-card-header" onClick={toggleCard}>
         <h5>{title}</h5>
